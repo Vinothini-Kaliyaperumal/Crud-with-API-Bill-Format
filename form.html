@@ -38,6 +38,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bill Making System</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <script src="form.js"></script>
   <style>
     body {
       font-family: 'Courier New', Courier, monospace;
@@ -136,14 +137,16 @@
 
     .add{
       margin-left: 997px;
-      margin-top: -170px;
+      /* margin-top: -170px; */
+      position: fixed-top;
     }
     .ad{
       margin-left: -12px;
       width: 542px;
     }
     .tom{
-      margin-top: 30px;
+      margin-top: 25px;
+      /* height: 230px; */
     }
     .bil{
       margin-top: -15px;
@@ -209,8 +212,8 @@
         <input type="text" class="form-control ad" id="address" name="address" placeholder="Enter Your Address" required>
       </div>
       <div class="form-group col-md-6">
-        <label for="address" class="gen">Gender</label>
-        <input type="radio" name="male" value="name" class="html">
+        <label for="gender" class="gen">Gender</label>
+        <input type="radio" name="male" value="male" class="html">
         <label for="html" class="htl">Male</label><br>
         <input type="radio" name="female" value="female" class="html1">
         <label for="css" class="htl1">Female</label><br>
@@ -218,7 +221,8 @@
      </form>
   </div>
    <div class="container container-custom tom">
-      <table class="table" id="bill-table">
+   <table class="table" id="table-item">
+        <button type="button" class="btn btn-secondary add" onclick="addItem()">Add Item</button>
       <thead>
         <tr>
           <th>Item</th>
@@ -231,14 +235,15 @@
       <tbody>
         <tr>
          <td class="col-md-2">
-            <select class="form-control" name="product[]">
-                <option value="Product 1" price="100">Product 1</option>
-                <option value="Product 2">Product 2</option>
-                <option value="Product 3">Product 3</option>
-                <option value="Product 4">Product 4</option>
-                <option value="Product 5">Product 5</option>
-            </select>
-        </td>
+            <select class="form-control" name="bikes[]">
+              <option value="" data-price="0">Select Prodect</option>
+                <option value="Product 1" data-price="399.99">Mountain Bike</option>
+                <option value="Product 2" data-price="549.99">Road Bike</option>
+                <option value="Product 3" data-price="279.99">Hybrid Bike</option>
+                <option value="Product 4" data-price="1299.99">Electric Bike</option>
+                <option value="Product 5" data-price="429.99">Folding Bike</option>
+              </select>
+         </td>
           <td class="col-md-2">
             <input type="number" class="form-control" id="quantity" name="quantity" min="1" placeholder="Enter quantity" required>
           </td>
@@ -246,99 +251,22 @@
             <input type="number" class="form-control" id="price" name="price" min="0" step="0.01" placeholder="Enter price" required>
           </td>
           <td class="col-md-2">
-            <input type="number" class="form-control" id="price" name="price" min="0" step="0.01" placeholder="Enter price" required>
+            <input type="number" class="form-control" id="price" name="total" min="0" step="0.01" placeholder="Enter total" required>
           </td>
           <td class="col-md-2">
             <button type="button" class="btn btn-success">Edit</button>
-            <button type="button" class="btn btn-danger">Delete</button>
+            <button type="button" class="btn btn-danger" onclick="deleteItem(this)">Delete</button>
           </td>
           
         </tr>
       </tbody>
     </table>
     <div id="total" class="total"></div>
-    <button class="btn btn-primary print-button" onclick="printBill()">Print Bill</button>
-    <button type="button" class="btn btn-secondary add" onclick="addItem()">Add Item</button>
+    <button class="btn btn-primary print-button" onclick="Save()">Save</button>
+    <button class="btn btn-primary print-button" onclick="Cancel()">Cancel</button>
+    
   </div>
-  
-  <!-- <script>
-    let items = [];
 
-    function addItem() {
-      const item = document.getElementById('item').value;
-      const quantity = parseInt(document.getElementById('quantity').value);
-      const price = parseFloat(document.getElementById('price').value);
-
-      if (item.trim() === '' || isNaN(quantity) || isNaN(price) || quantity <= 0 || price <= 0) {
-        alert('Please enter valid item details.');
-        return;
-      }
-
-      const total = quantity * price;
-
-      items.push({
-        item,
-        quantity,
-        price,
-        total
-      });
-
-      renderBill();
-      clearForm();
-    }
-
-    function renderBill() {
-      const table = document.getElementById('bill-table').getElementsByTagName('tbody')[0];
-      table.innerHTML = `
-        <tr>
-          <td><input type="text" class="form-control" id="item" name="item" placeholder="Enter item name" required></td>
-          <td><input type="number" class="form-control" id="quantity" name="quantity" min="1" placeholder="Enter quantity" required></td>
-          <td><input type="number" class="form-control" id="price" name="price" min="0" step="0.01" placeholder="Enter price" required></td>
-          <td></td>
-          <td><button type="button" class="btn btn-primary" onclick="addItem()">Add Item</button></td>
-        </tr>
-        ${items.map((item, index) => `
-          <tr>
-            <td>${item.item}</td>
-            <td>${item.quantity}</td>
-            <td>$${item.price.toFixed(2)}</td>
-            <td>$${item.total.toFixed(2)}</td>
-            <td><button class="btn btn-danger delete-button" onclick="deleteItem(${index})">Delete</button></td>
-          </tr>
-        `).join('')}
-      `;
-
-      updateTotal();
-    }
-
-    function deleteItem(index) {
-      items.splice(index, 1);
-      renderBill();
-    }
-
-    function clearForm() {
-      document.getElementById('item').value = '';
-      document.getElementById('quantity').value = '';
-      document.getElementById('price').value = '';
-    }
-
-    function updateTotal() {
-      const total = items.reduce((acc, item) => acc + item.total, 0);
-      document.getElementById('total').innerText = `Total: $${total.toFixed(2)}`;
-    }
-
-    function printBill() {
-      const billContent = document.querySelector('.container').innerHTML;
-      const originalContent = document.body.innerHTML;
-
-      document.body.innerHTML = billContent;
-      window.print();
-      document.body.innerHTML = originalContent;
-    }
-  </script> -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>

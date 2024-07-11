@@ -1,32 +1,46 @@
-function addRow() {
-    var table = document.getElementById("bill-table").getElementsByTagName('tbody')[0];
+const bikes = [
+    { name: "Select a Product", price: 0, quantity:0 },
+    { name: "Mountain Bike", price: 399.99, quantity:4},
+    { name: "Road Bike", price: 549.99, quantity:8 },
+    { name: "Hybrid Bike", price: 279.99, quantity:12 },
+    { name: "Electric Bike", price: 1299.99, quantity:16 },
+    { name: "Folding Bike", price:429.99, quantity:20},
+  ];
+    
+  
+  function addItem() {
+    var table = document.getElementById("table-item").getElementsByTagName('tbody')[0];
     var row = table.insertRow();
   
-    var productCell = row.insertCell();
+    var itemCell = row.insertCell();
     var quantityCell = row.insertCell();
     var priceCell = row.insertCell();
-    var amountCell = row.insertCell();
+    var totalCell = row.insertCell();
     var actionCell = row.insertCell();
   
-    productCell.innerHTML = `
-        <select class="form-control" name="product[]" onchange="setPrice(this)">
-            <option value="" data-price="0">Select a product</option>
-            <option value="Product 1" data-price="19.99">Headphones</option>
-            <option value="Product 2" data-price="799.99">Laptop</option>
-            <option value="Product 3" data-price="24.50">Wireless Mouse</option>
-            <option value="Product 4" data-price="129.95">Smartwatch</option>
-            <option value="Product 5" data-price="49.99">Gaming Keyboar</option>
-            
-        </select>`;
+    var bikesSelect = document.createElement("select");
+    bikesSelect.className = "form-control";
+    bikesSelect.name = "bikes[]";
+    bikesSelect.onchange = function() { setPrice(this); };
+  
+    bikes.forEach(function(bikes) {
+        var option = document.createElement("option");
+        option.value = bikes.name;
+        option.setAttribute("data-price", bikes.price);
+        option.textContent = bikes.name;
+        bikesSelect.appendChild(option);
+    });
+  
+    itemCell.appendChild(bikesSelect);
     quantityCell.innerHTML = '<input type="number" class="form-control" name="quantity[]" placeholder="Enter quantity" required>';
-    priceCell.innerHTML = '<input type="number" class="form-control" name="price[]" readonly>';
-    amountCell.innerHTML = '<input type="number" class="form-control" name="amount[]" readonly>';
-    actionCell.innerHTML = '<button type="button" class="btn btn-danger" onclick="deleteRow(this)">Delete</button>';
+    priceCell.innerHTML = '<input type="number" class="form-control" name="price[]" placeholder="Enter price" readonly>';
+    totalCell.innerHTML = '<input type="number" class="form-control" name="total[]" placeholder="Enter total" readonly>';
+    actionCell.innerHTML = '<button type="button" class="btn btn-danger" onclick="deleteItem(this)">Delete</button>';
   
     addEventListeners();
   }
   
-  function deleteRow(button) {
+  function deleteItem(button) {
     var row = button.parentNode.parentNode;
     row.parentNode.removeChild(row);
     calculateTotal();
@@ -42,21 +56,21 @@ function addRow() {
   function calculateAmount(row) {
     var quantity = row.querySelector('input[name="quantity[]"]').value;
     var price = row.querySelector('input[name="price[]"]').value;
-    var amount = row.querySelector('input[name="amount[]"]');
+    var total = row.querySelector('input[name="total[]"]');
     if (quantity && price) {
-        amount.value = quantity * price;
+        total.value = quantity * price;
     } else {
-        amount.value = 0;
+        total.value = 0;
     }
     calculateTotal();
   }
   
   function calculateTotal() {
-    var rows = document.querySelectorAll('#bill-table tbody tr');
+    var rows = document.querySelectorAll('#table-item tbody tr');
     var subtotal = 0;
     rows.forEach(row => {
-        var amount = row.querySelector('input[name="amount[]"]').value;
-        subtotal += parseFloat(amount);
+        var total = row.querySelector('input[name="total[]"]').value;
+        subtotal += parseFloat(total);
     });
     var gst = subtotal * 0.05;
     var discount = subtotal * 0.10;

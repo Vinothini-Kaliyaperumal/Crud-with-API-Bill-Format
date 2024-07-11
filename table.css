@@ -1,0 +1,25 @@
+body{
+    overflow-x: hidden;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 100%;
+    /* background-image:repeating-linear-gradient(to right, #9b51e0 , #cf2e2e);  */
+}
+thead{
+    font-size: larger;
+}
+td,thead{
+    text-align: center;
+}
+#table th{
+    background-color: rgb(7, 12, 58);
+    color: white;
+}
+.card{
+    background-color: rgba(7, 12, 58, 0.059) !important;
+    
+}
+.details{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bold;
+}
