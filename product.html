@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Bill Generator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="form.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="form.js"></script>
+</head>
+<body>
+    <header class="bg-dark text-white text-center hd">
+        <h1>Shopping Bill Generator</h1>
+    </header>
+    <div id="deteils" class="container ">
+        <h4 class="head text-center">Customer Details</h4>
+        <form id="billing-form" onsubmit="handleSubmit(event)">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="customerName">Customer Name:</label>
+                    <input type="text" class="form-control" id="customerName" name="customerName" placeholder="Enter customer name">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="purchase-date">Purchase Date:</label>
+                    <input type="date" class="form-control" id="purchase-date" name="purchase-date">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="mobileNo">Phone Number:</label>
+                    <input type="number" class="form-control" id="mobileNo" name="mobileNo" placeholder="Enter your phone number">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="address">Address:</label>
+                    <input type="text" class="form-control" id="address" name="address" placeholder="Enter your current address">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="gender">Gender:</label>
+                    <select class="form-control" id="gender" name="gender">
+                        <option value="">Select Gender</option>
+                        <option value="MALE">Male</option>
+                        <option value="FEMALE">Female</option>
+                        <option value="OTHER">Other</option>
+                    </select>
+                </div>
+            </div>
+            <div id="show" class="container-custom">
+                <h4 class=" list text-center ">Billing List</h4>
+                <button id="add" type="button" class="btn btn-success mb-2" onclick="addRow()">+ Add Row</button>
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="bill-table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Amount</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <select id="productName" class="form-control" name="productName" onchange="setPrice(this)">
+                                        <option value="" data-price="0">Select a product</option>
+                                        <option value="Headphones" data-price="19">Headphones</option>
+                                        <option value="Laptop" data-price="799">Laptop</option>
+                                        <option value="Wireless Mouse" data-price="24">Wireless Mouse</option>
+                                        <option value="Smartwatch" data-price="129">Smartwatch</option>
+                                        <option value="Gaming Keyboard" data-price="49">Gaming Keyboard</option>
+                                    </select>
+                                </td>
+                                <td><input type="number" class="form-control" name="quantity" placeholder="Enter quantity" required></td>
+                                <td><input type="number" class="form-control" name="price" readonly></td>
+                                <td><input type="number" class="form-control" name="totalAmount" readonly></td>
+                                <td>
+                                    <button type="button" class="btn btn-danger" onclick="deleteRow(this)">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="total text-right mt-4">
+                    <p>Subtotal: $<span id="subtotal">0.00</span></p>
+                    <p>GST (5%): $<span id="gst">0.00</span></p>
+                    <p>Discount (10%): $<span id="discount">0.00</span></p>
+                    <h4>Total: $<span id="total">0.00</span></h4>
+                </div>
+            </div>
+            <div class="text my-4">
+                <input id="save" type="submit" class="btn btn-success" value="Save">
+                <input id="can" type="button" class="btn btn-danger" value="Cancel">
+            </div>
+        </form>
+    </div>
+    <script src="form.js"></script>
+</body>
+</html>
+
+
+
+   

@@ -1,74 +1,244 @@
+// var products = [
+//   { name: "Select a product", price: 0, quantity: 0 },
+//   { name: "Headphones", price: 19, quantity: 40 },
+//   { name: "Laptop", price: 799, quantity: 40 },
+//   { name: "Wireless Mouse", price: 24, quantity: 40 },
+//   { name: "Smartwatch", price: 129, quantity: 40 },
+//   { name: "Gaming Keyboard", price: 49, quantity: 40 }
+// ];
+
+// function addRow() {
+//   var table = document.getElementById("bill-table").getElementsByTagName('tbody')[0];
+//   var row = table.insertRow();
+
+//   var productCell = row.insertCell();
+//   var quantityCell = row.insertCell();
+//   var priceCell = row.insertCell();
+//   var amountCell = row.insertCell();
+//   var actionCell = row.insertCell();
+
+//   var productSelect = document.createElement("select");
+//   productSelect.className = "form-control";
+//   productSelect.name = "productName";
+//   productSelect.onchange = function() { setPrice(this); };
+
+//   products.forEach(function(product) {
+//       var option = document.createElement("option");
+//       option.value = product.name;
+//       option.setAttribute("data-price", product.price);
+//       option.textContent = product.name;
+//       productSelect.appendChild(option);
+//   });
+
+//   productCell.appendChild(productSelect);
+//   quantityCell.innerHTML = '<input type="number" class="form-control" name="quantity" placeholder="Enter quantity" required>';
+//   priceCell.innerHTML = '<input type="number" class="form-control" name="price" readonly>';
+//   amountCell.innerHTML = '<input type="number" class="form-control" name="totalAmount" readonly>';
+//   actionCell.innerHTML = '<button type="button" class="btn btn-danger" onclick="deleteRow(this)">Delete</button>';
+
+//   addEventListeners();
+// }
+
+// function deleteRow(button) {
+//   var row = button.parentNode.parentNode;
+//   row.parentNode.removeChild(row);
+//   calculateTotal();
+// }
+
+// function setPrice(selectElement) {
+//   var price = selectElement.options[selectElement.selectedIndex].getAttribute('data-price');
+//   var row = selectElement.parentElement.parentElement;
+//   row.querySelector('input[name="price"]').value = price;
+//   calculateAmount(row);
+// }
+
+// function calculateAmount(row) {
+//   var quantity = row.querySelector('input[name="quantity"]').value;
+//   var price = row.querySelector('input[name="price"]').value;
+//   var totalAmount = row.querySelector('input[name="totalAmount"]');
+//   if (quantity && price) {
+//       totalAmount.value = quantity * price;
+//   } else {
+//       totalAmount.value = 0;
+//   }
+//   calculateTotal();
+// }
+
+// function calculateTotal() {
+//   var rows = document.querySelectorAll('#bill-table tbody tr');
+//   var subtotal = 0;
+//   rows.forEach(row => {
+//       var amount = row.querySelector('input[name="totalAmount"]').value;
+//       subtotal += parseFloat(amount) || 0;
+//   });
+//   var gst = subtotal * 0.05;
+//   var discount = subtotal * 0.10;
+//   var total = subtotal + gst - discount;
+//   document.getElementById('subtotal').textContent = subtotal.toFixed(2);
+//   document.getElementById('gst').textContent = gst.toFixed(2);
+//   document.getElementById('discount').textContent = discount.toFixed(2);
+//   document.getElementById('total').textContent = total.toFixed(2);
+// }
 
 
-  function handleSubmit(event) {
-    event.preventDefault(); // Prevent the form from submitting normally
-    // Process form data here if needed
-    window.location.href = 'table.html'; // Redirect to table.html
+
+var products = [
+  { name: "Select a product", price: 0, quantity: 0 },
+  { name: "Headphones", price: 19, quantity: 40 },
+  { name: "Laptop", price: 799, quantity: 40 },
+  { name: "Wireless Mouse", price: 24, quantity: 40 },
+  { name: "Smartwatch", price: 129, quantity: 40 },
+  { name: "Gaming Keyboard", price: 49, quantity: 40 }
+];
+
+function addRow() {
+  var table = document.getElementById("bill-table").getElementsByTagName('tbody')[0];
+  var row = table.insertRow();
+
+  var productCell = row.insertCell();
+  var quantityCell = row.insertCell();
+  var priceCell = row.insertCell();
+  var amountCell = row.insertCell();
+  var actionCell = row.insertCell();
+
+  var productSelect = document.createElement("select");
+  productSelect.className = "form-control";
+  productSelect.name = "productName";
+  productSelect.onchange = function() { setPrice(this); };
+
+  products.forEach(function(product) {
+      var option = document.createElement("option");
+      option.value = product.name;
+      option.setAttribute("data-price", product.price);
+      option.textContent = product.name;
+      productSelect.appendChild(option);
+  });
+
+  productCell.appendChild(productSelect);
+  quantityCell.innerHTML = '<input type="number" class="form-control" name="quantity" placeholder="Enter quantity" required>';
+  priceCell.innerHTML = '<input type="number" class="form-control" name="price" readonly>';
+  amountCell.innerHTML = '<input type="number" class="form-control" name="totalAmount" readonly>';
+  actionCell.innerHTML = '<button type="button" class="btn btn-danger" onclick="deleteRow(this)">Delete</button>';
+
+  addEventListeners();
+}
+
+function deleteRow(button) {
+  var row = button.parentNode.parentNode;
+  row.parentNode.removeChild(row);
+  calculateTotal();
+}
+
+function setPrice(selectElement) {
+  var price = selectElement.options[selectElement.selectedIndex].getAttribute('data-price');
+  var row = selectElement.parentElement.parentElement;
+  row.querySelector('input[name="price"]').value = price;
+  calculateAmount(row);
+}
+
+function calculateAmount(row) {
+  var quantity = row.querySelector('input[name="quantity"]').value;
+  var price = row.querySelector('input[name="price"]').value;
+  var totalAmount = row.querySelector('input[name="totalAmount"]');
+  if (quantity && price) {
+      totalAmount.value = quantity * price;
+  } else {
+      totalAmount.value = 0;
   }
+  calculateTotal();
+}
 
-  function handleSave() {
-    // Perform any save logic here
-    window.location.href = 'table.html'; // Redirect to table.html after saving
-  }
+function calculateTotal() {
+  var rows = document.querySelectorAll('#bill-table tbody tr');
+  var subtotal = 0;
+  rows.forEach(row => {
+      var amount = row.querySelector('input[name="totalAmount"]').value;
+      subtotal += parseFloat(amount) || 0;
+  });
+  var gst = subtotal * 0.05;
+  var discount = subtotal * 0.10;
+  var total = subtotal + gst - discount;
+  document.getElementById('subtotal').textContent = subtotal.toFixed(2);
+  document.getElementById('gst').textContent = gst.toFixed(2);
+  document.getElementById('discount').textContent = discount.toFixed(2);
+  document.getElementById('total').textContent = total.toFixed(2);
+}
 
-  function addItem() {
-    const table = document.getElementById('table-item').getElementsByTagName('tbody')[0];
-    const newRow = table.insertRow();
+function addEventListeners() {
+  var quantityInputs = document.querySelectorAll('input[name="quantity"]');
+  quantityInputs.forEach(input => {
+      input.addEventListener('input', function() {
+          calculateAmount(this.parentElement.parentElement);
+      });
+  });
+}
 
-    const cell1 = newRow.insertCell(0);
-    const cell2 = newRow.insertCell(1);
-    const cell3 = newRow.insertCell(2);
-    const cell4 = newRow.insertCell(3);
-    const cell5 = newRow.insertCell(4);
+document.addEventListener('DOMContentLoaded', function() {
+  addEventListeners();
+});
 
-    cell1.innerHTML = `<select id="bikes" class="form-control" name="bikes[]" onchange="setPrice(this)">
-                        <option value="" data-price="0">Select Prodect</option>
-                        <option value="Mountain Bike" data-price="399">Mountain Bike</option>
-                        <option value="Road Bike" data-price="549">Road Bike</option>
-                        <option value="Hybrid Bike" data-price="279">Hybrid Bike</option>
-                        <option value="Electric Bike" data-price="1299">Electric Bike</option>
-                        <option value="Folding Bike" data-price="429">Folding Bike</option>
-                      </select>`;
-    cell2.innerHTML = '<input type="number" class="form-control" name="quantity[]" placeholder="Enter quantity" required>';
-    cell3.innerHTML = '<input type="number" class="form-control" name="price[]" placeholder="Enter price" readonly>';
-    cell4.innerHTML = '<input type="number" class="form-control" name="total[]" placeholder="Enter total" readonly>';
-    cell5.innerHTML = '<button type="button" class="btn btn-primary">Edit</button> <button type="button" class="btn btn-danger" onclick="deleteItem(this)">Delete</button>';
-  }
+function handleSubmit(event) {
+  event.preventDefault();
 
-  function deleteItem(button) {
-    const row = button.parentNode.parentNode;
-    row.parentNode.removeChild(row);
-  }
 
-  function setPrice(select) {
-    const price = select.options[select.selectedIndex].getAttribute('data-price');
-    const row = select.parentNode.parentNode;
-    const priceInput = row.cells[2].getElementsByTagName('input')[0];
-    const totalInput = row.cells[3].getElementsByTagName('input')[0];
-    priceInput.value = price;
+  const customerName = document.getElementById('customerName').value;
+  const email = document.getElementById('email').value;
+  const mobileNo = document.getElementById('mobileNo').value;
+  const address = document.getElementById('address').value;
+  const gender = document.getElementById('gender').value;
 
-    const quantityInput = row.cells[1].getElementsByTagName('input')[0];
-    quantityInput.addEventListener('input', function () {
-      totalInput.value = price * quantityInput.value;
-      updateTotals();
-    });
-  }
+ 
+  const productRows = document.querySelectorAll('#bill-table tbody tr');
+  const customerProduct = [];
+  productRows.forEach(row => {
+      const productName = row.querySelector('select[name="productName"]').value;
+      const quantity = row.querySelector('input[name="quantity"]').value;
+      const price = row.querySelector('input[name="price"]').value;
+      const totalAmount = row.querySelector('input[name="totalAmount"]').value;
+      customerProduct.push({ productName, quantity, price, totalAmount });
+  });
 
-  function updateTotals() {
-    const table = document.getElementById('table-item').getElementsByTagName('tbody')[0];
-    let subtotal = 0;
+  // Create the payload
+  const payload = {
+      customerName,
+      email,
+      mobileNo,
+      address,
+      gender,
+      customerProduct
+  };
+  console.log(payload);
 
-    for (let row of table.rows) {
-      const total = row.cells[3].getElementsByTagName('input')[0].value;
-      subtotal += parseFloat(total) || 0;
-    }
-
-    const gst = subtotal * 0.05;
-    const discount = subtotal * 0.10;
-    const total = subtotal + gst - discount;
-
-    document.getElementById('subtotal').innerText = subtotal.toFixed(2);
-    document.getElementById('gst').innerText = gst.toFixed(2);
-    document.getElementById('discount').innerText = discount.toFixed(2);
-    document.getElementById('total').innerText = total.toFixed(2);
-  }
+  // Send the POST request
+  fetch('http://localhost:8080/api/invoice/buy/product', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+  })
+  .then(response => {
+      if (!response.ok) {
+          return response.json().then(data => {
+              throw new Error(`API Error: ${data.error.code} - ${data.error.reason}`);
+          });
+      }
+      return response.json();
+  })
+  .then(data => {
+      console.log('Success:', data);
+      // Handle successful response, e.g., display a success message
+      alert('Order placed successfully!');
+  })
+  .catch(error => {
+      console.error('Error:', error);
+      // Handle error, e.g., display an error message
+      if (error.message.includes('409 CONFLICT')) {
+          alert('Conflict occurred. Please check your data for duplicates or inconsistencies.');
+      } else if (error.message.includes('400 BAD_REQUEST')) {
+          alert('Invalid data. Please check your inputs.');
+      } else {
+          alert('An error occurred. Please try again later.');
+      }
+  });
+}

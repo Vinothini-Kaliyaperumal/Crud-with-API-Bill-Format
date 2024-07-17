@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -167,45 +167,45 @@
 <body>
   <h1 class="bil">Bill Making System</h1>
   <div class="container container-custom card">
-    <form id="bill-form" class="mb-4" onsubmit="handleSubmit(event)">
+    <form id="billing-form" class="mb-4" onsubmit="handleSubmit(event)">
       <div class="form-row">
         <div class="form-group col-md-6">
-          <label for="Customer Name">Customer Name</label>
-          <input type="text" class="form-control" id="Customer Name" name="Customer Name" placeholder="Enter Your Name" required>
+          <label for="customerName">Customer Name</label>
+          <input type="text" class="form-control" id="customerName" name="customerName" placeholder="Enter Your Name" required>
         </div>
         <div class="form-group col-md-6" id="phone">
-          <label for="Phone Num">Phone Num</label>
-          <input type="number" class="form-control" id="Phone Num" name="Phone Num" placeholder="Enter Your Num" required>
+          <label for="phone-number">Phone Num</label>
+          <input type="number" class="form-control" id="mobileNo" name="mobileNo" placeholder="Enter Your Num" required>
         </div>
       </div>
       <div class="form-row">
-        <div class="form-group col-md-6" id="email">
-          <label for="Email">Email</label>
-          <input type="email" class="form-control" id="Email" name="Email" placeholder="Enter Your Email" required>
+        <div class="form-group col-md-6" id="mail">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
         </div>
-        <div class="form-group col-md-6" id="date">
-          <label for="Purchase Date">Purchase Date</label>
-          <input type="date" class="form-control" id="Purchase Date" name="Purchase Date" placeholder="(dd/mm/yy)" required>
+        <div class="form-group col-md-6" id="Purchase">
+          <label for="purchase-date">Purchase Date</label>
+          <input type="date" class="form-control" id="purchase-date" name="purchase-date" placeholder="(dd/mm/yy)" required>
         </div>
       </div>
 <div  class="d-flex">
       <div class="form-group col-md-6" id="add-ress">
         <label for="Address" class="ad">Address</label>
-        <textarea class="form-control ph" id="Address" name="Address" placeholder="Enter Your Address" required></textarea>
+        <textarea class="form-control ph" id="address" name="address" placeholder="Enter Your Address" required></textarea>
     </div>
      <div class="form-group col-md-6" id="gen">
-        <label for="Gender">Gender</label><br>
-        <input type="radio" id="Gender" name="Gender" value="male">
+        <label for="gender">Gender</label><br>
+        <input type="radio" id="gender" name="gender" value="male">
         <label for="male" >Male</label><br>
-        <input type="radio" id="Gender" name="Gender" value="female">
+        <input type="radio" id="gender" name="gender" value="female">
         <label for="female">Female</label><br>
     </div>
   </div>
     </form>
   </div>
-   <div class="container container-custom tom" id="card2">
-   <table class="table" id="table-item">
-    <button id="top" type="button" class="btn btn-success " onclick="addItem()">+ Add Item</button> 
+   <div class="container container-custom tom" id="show">
+    <button id="top" type="button" class="btn btn-success " onclick="addRow()">+ Add Item</button> 
+   <table class="table" id="bill-table">
       <thead>
         <tr>
           <th>Item</th>
@@ -218,8 +218,8 @@
       <tbody>
         <tr>
          <td class="col-md-2">
-            <select id="bikes" class="form-control" name="bikes[]" onchange="setPrice(this)">
-                <option value="" data-price="0">Select Prodect</option>
+            <select id="productName" class = "form-control" name="productName" onchange="setPrice(this)">
+                <option value="" data-price="0">Select a prodect</option>
                 <option value="Mountain Bike" data-price="399">Mountain Bike</option>
                 <option value="Road Bike" data-price="549">Road Bike</option>
                 <option value="Hybrid Bike" data-price="279">Hybrid Bike</option>
@@ -228,17 +228,17 @@
               </select>
          </td>
           <td class="col-md-2">
-            <input type="number" class="form-control" name="quantity[]" placeholder="Enter quantity" required>
+            <input type="number" class="form-control" name="quantity" placeholder="Enter quantity" required>
           </td>
           <td class="col-md-2">
-            <input type="number" class="form-control"  name="price[]" placeholder="Enter price" readonly>
+            <input type="number" class="form-control"  name="price" placeholder="Enter price" readonly>
           </td>
           <td class="col-md-2">
-            <input type="number" class="form-control"  name="total[]" placeholder="Enter total" readonly>
+            <input type="number" class="form-control"  name="totalAmount" placeholder="Enter total" readonly>
           </td>
           <td class="col-md-2">
-            <button type="button" class="btn btn-primary">Edit</button>
-            <button type="button" class="btn btn-danger" onclick="deleteItem(this)">Delete</button>
+          <!-- <button type="button" class="btn btn-primary">Edit</button>  -->
+            <button type="button" class="btn btn-danger" onclick="deleteRow(this)">Delete</button>
           </td>
            </tr>
       </tbody>
@@ -252,22 +252,16 @@
   
  </div>
     <div id="total1" class="total"></div>
-    <button id="final1" class="btn btn-primary print-button sav" onclick="window.location.href='table.html'">Save</button>
-    <button id="final2" class="btn btn-primary print-button can">Cancel</button>
+    <button id="save" class="btn btn-primary print-button sav" >Save</button>
+    <button id="can" class="btn btn-primary print-button can" onclick="window.location.href='table.html'">Cancel</button>
  </div>
 
 </body>
-</html> -->
+</html>
+
+
  
-
-
-
-
-
-
-
-
-<!DOCTYPE html>
+ <!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -281,33 +275,38 @@
     <script src="form.js"></script>
 </head>
 <body>
-    <header class="bg-dark text-white text-center py-3">
+    <header class="bg-dark text-white text-center hd">
         <h1>Shopping Bill Generator</h1>
     </header>
-    <div id="details" class="container container-custom">
-        <main class="container mt-4">
-            <form id="billing-form" onsubmit="handleSubmit(event)">
-                <div class="form-group">
-                    <label for="customer-name">Customer Name:</label>
+    <div id="deteils" class="container ">
+        <h4 class="head text-center">Customer Details</h4>
+        <form id="billing-form" onsubmit="handleSubmit(event)">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="customerName">Customer Name:</label>
                     <input type="text" class="form-control" id="customerName" name="customerName" placeholder="Enter customer name">
                 </div>
-                <div id="Purchase" class="form-group">
+                <div class="form-group col-md-6">
                     <label for="purchase-date">Purchase Date:</label>
-                    <input type="date" class="form-control" id="purchase-date" name="purchase-date" >
+                    <input type="date" class="form-control" id="purchase-date" name="purchase-date">
                 </div>
-                <div id="phone" class="form-group">
-                    <label for="phone-number">Phone Number:</label>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="mobileNo">Phone Number:</label>
                     <input type="number" class="form-control" id="mobileNo" name="mobileNo" placeholder="Enter your phone number">
                 </div>
-                <div id="mail" class="form-group">
+                <div class="form-group col-md-6">
                     <label for="email">Email:</label>
                     <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
                 </div>
-                <div id="add-ress" class="form-group">
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
                     <label for="address">Address:</label>
                     <input type="text" class="form-control" id="address" name="address" placeholder="Enter your current address">
                 </div>
-                <div id="gen" class="form-group">
+                <div class="form-group col-md-6">
                     <label for="gender">Gender:</label>
                     <select class="form-control" id="gender" name="gender">
                         <option value="">Select Gender</option>
@@ -316,9 +315,12 @@
                         <option value="OTHER">Other</option>
                     </select>
                 </div>
-                <div id="show" class="container container-custom">
-                    <button id="add" type="button" class="btn btn-secondary mb-2" onclick="addRow()">Add Row</button>
-                    <table class="table table-responsive" id="bill-table">
+            </div>
+            <div id="show" class="container-custom">
+                <h4 class=" list text-center ">Billing List</h4>
+                <button id="add" type="button" class="btn btn-success mb-2" onclick="addRow()">+ Add Row</button>
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="bill-table">
                         <thead>
                             <tr>
                                 <th>Product</th>
@@ -349,196 +351,24 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div class="total mt-4">
-                        <p>Subtotal: $<span id="subtotal">0.00</span></p>
-                        <p>GST (5%): $<span id="gst">0.00</span></p>
-                        <p>Discount (10%): $<span id="discount">0.00</span></p>
-                        <h4>Total: $<span id="total">0.00</span></h4>
-                    </div>
-                    <input id="save" type="submit" class="btn btn-success" value="Save">
-                    <input id="can" type="button" class="btn btn-danger" value="Cancel" onclick="window.location.href='table.html'">
                 </div>
-            </form>
-        </main>
+                <div class="total text-right mt-4">
+                    <p>Subtotal: $<span id="subtotal">0.00</span></p>
+                    <p>GST (5%): $<span id="gst">0.00</span></p>
+                    <p>Discount (10%): $<span id="discount">0.00</span></p>
+                    <h4>Total: $<span id="total">0.00</span></h4>
+                </div>
+            </div>
+            <div class="text my-4">
+                <input id="save" type="submit" class="btn btn-success" value="Save">
+                <input id="can" type="button" class="btn btn-danger" value="Cancel">
+            </div>
+        </form>
     </div>
-    <script>
-        var products = [
-            { name: "Select a product", price: 0, quantity: 0 },
-            { name: "Headphones", price: 19, quantity: 40 },
-            { name: "Laptop", price: 799, quantity: 40 },
-            { name: "Wireless Mouse", price: 24, quantity: 40 },
-            { name: "Smartwatch", price: 129, quantity: 40 },
-            { name: "Gaming Keyboard", price: 49, quantity: 40 }
-        ];
-
-        function addRow() {
-            var table = document.getElementById("bill-table").getElementsByTagName('tbody')[0];
-            var row = table.insertRow();
-
-            var productCell = row.insertCell();
-            var quantityCell = row.insertCell();
-            var priceCell = row.insertCell();
-            var amountCell = row.insertCell();
-            var actionCell = row.insertCell();
-
-            var productSelect = document.createElement("select");
-            productSelect.className = "form-control";
-            productSelect.name = "productName";
-            productSelect.onchange = function() { setPrice(this); };
-
-            products.forEach(function(product) {
-                var option = document.createElement("option");
-                option.value = product.name;
-                option.setAttribute("data-price", product.price);
-                option.textContent = product.name;
-                productSelect.appendChild(option);
-            });
-
-            productCell.appendChild(productSelect);
-            quantityCell.innerHTML = '<input type="number" class="form-control" name="quantity" placeholder="Enter quantity" required>';
-            priceCell.innerHTML = '<input type="number" class="form-control" name="price" readonly>';
-            amountCell.innerHTML = '<input type="number" class="form-control" name="totalAmount" readonly>';
-            actionCell.innerHTML = '<button type="button" class="btn btn-danger" onclick="deleteRow(this)">Delete</button>';
-
-            addEventListeners();
-        }
-
-        function deleteRow(button) {
-            var row = button.parentNode.parentNode;
-            row.parentNode.removeChild(row);
-            calculateTotal();
-        }
-
-        function setPrice(selectElement) {
-            var price = selectElement.options[selectElement.selectedIndex].getAttribute('data-price');
-            var row = selectElement.parentElement.parentElement;
-            row.querySelector('input[name="price"]').value = price;
-            calculateAmount(row);
-        }
-
-        function calculateAmount(row) {
-            var quantity = row.querySelector('input[name="quantity"]').value;
-            var price = row.querySelector('input[name="price"]').value;
-            var totalAmount = row.querySelector('input[name="totalAmount"]');
-            if (quantity && price) {
-                totalAmount.value = quantity * price;
-            } else {
-                totalAmount .value = 0;
-            }
-            calculateTotal();
-        }
-
-        function calculateTotal() {
-            var rows = document.querySelectorAll('#bill-table tbody tr');
-            var subtotal = 0;
-            rows.forEach(row => {
-                var amount = row.querySelector('input[name="totalAmount"]').value;
-                subtotal += parseFloat(amount) || 0;
-            });
-            var gst = subtotal * 0.05;
-            var discount = subtotal * 0.10;
-            var total = subtotal + gst - discount;
-            document.getElementById('subtotal').textContent = subtotal.toFixed(2);
-            document.getElementById('gst').textContent = gst.toFixed(2);
-            document.getElementById('discount').textContent = discount.toFixed(2);
-            document.getElementById('total').textContent = total.toFixed(2);
-        }
-
-        function addEventListeners() {
-            var quantityInputs = document.querySelectorAll('input[name="quantity[]"]');
-            var priceInputs = document.querySelectorAll('input[name="price[]"]');
-
-            quantityInputs.forEach(input => {
-                input.addEventListener('input', function() {
-                    calculateAmount(this.parentElement.parentElement);
-                });
-            });
-
-            priceInputs.forEach(input => {
-                input.addEventListener('input', function() {
-                    calculateAmount(this.parentElement.parentElement);
-                });
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            addEventListeners();
-        });
-
-        function handleSubmit(event) {
-  event.preventDefault();
-
- 
-
-  // Gather data from form elements
-  const customerName = document.getElementById('customerName').value;
-  const email = document.getElementById('email').value;
-  const mobileNo = document.getElementById('mobileNo').value;
-  const address = document.getElementById('address').value;
-  const gender = document.getElementById('gender').value;
-
-  // Get product data from the table
-  const productRows = document.querySelectorAll('#bill-table tbody tr');
-  const customerProduct = [];
-  productRows.forEach(row => {
-    const productName = row.querySelector('select[name="productName"]').value;
-    const quantity = row.querySelector('input[name="quantity"]').value;
-    const price = row.querySelector('input[name="price"]').value;
-    const totalAmount = row.querySelector('input[name="totalAmount"]').value;
-    customerProduct.push({ productName, quantity, price, totalAmount });
-  });
-
-  // Create the payload
-  const payload = {
-    customerName,
-    email,
-    mobileNo,
-    address,
-    gender,
-    customerProduct
-  };
-  console.log(payload);
-
-  // Send the POST request
-  fetch('http://localhost:8080/api/invoice/buy/product', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(payload)
-  })
-  .then(response => {
-    if (!response.ok) {
-      return response.json().then(data => {
-        throw new Error(`API Error: ${data.error.code} - ${data.error.reason}`);
-      });
-    }
-    return response.json();
-  })
-  .then(data => {
-    console.log('Success:', data);
-    // Handle successful response, e.g., display a success message
-    alert('Order placed successfully!');
-  })
-  .catch(error => {
-    console.error('Error:', error);
-    // Handle error, e.g., display an error message
-    if (error.message.includes('409 CONFLICT')) {
-      alert('Conflict occurred. Please check your data for duplicates or inconsistencies.');
-    } else if (error.message.includes('400 BAD_REQUEST')) {
-      alert('Invalid data. Please check your inputs.');
-    } else {
-      alert('An error occurred. Please try again later.');
-    }
-  });
-}
-
-
-
-      
-    </script>
+    <script src="form.js"></script>
 </body>
 </html>
 
 
 
+    -->
