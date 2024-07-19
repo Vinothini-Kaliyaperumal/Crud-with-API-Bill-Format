@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+ <!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -167,33 +167,33 @@
 <body>
   <h1 class="bil">Bill Making System</h1>
   <div class="container container-custom card">
-    <form id="billing-form" class="mb-4" onsubmit="handleSubmit(event)">
+    <form id="billing-form" class="mb-4" >
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="customerName">Customer Name</label>
           <input type="text" class="form-control" id="customerName" name="customerName" placeholder="Enter Your Name" required>
         </div>
-        <div class="form-group col-md-6" id="phone">
-          <label for="phone-number">Phone Num</label>
+        <div class="form-group col-md-6">
+          <label for="mobileNo">Phone Num</label>
           <input type="number" class="form-control" id="mobileNo" name="mobileNo" placeholder="Enter Your Num" required>
         </div>
       </div>
       <div class="form-row">
-        <div class="form-group col-md-6" id="mail">
+        <div class="form-group col-md-6">
           <label for="email">Email</label>
           <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
         </div>
-        <div class="form-group col-md-6" id="Purchase">
+        <div class="form-group col-md-6" >
           <label for="purchase-date">Purchase Date</label>
           <input type="date" class="form-control" id="purchase-date" name="purchase-date" placeholder="(dd/mm/yy)" required>
         </div>
       </div>
 <div  class="d-flex">
-      <div class="form-group col-md-6" id="add-ress">
-        <label for="Address" class="ad">Address</label>
+      <div class="form-group col-md-6">
+        <label for="address" class="ad">Address</label>
         <textarea class="form-control ph" id="address" name="address" placeholder="Enter Your Address" required></textarea>
     </div>
-     <div class="form-group col-md-6" id="gen">
+     <div class="form-group col-md-6">
         <label for="gender">Gender</label><br>
         <input type="radio" id="gender" name="gender" value="male">
         <label for="male" >Male</label><br>
@@ -201,17 +201,17 @@
         <label for="female">Female</label><br>
     </div>
   </div>
-    </form>
+    
   </div>
    <div class="container container-custom tom" id="show">
-    <button id="top" type="button" class="btn btn-success " onclick="addRow()">+ Add Item</button> 
+    <button id="add" type="button" class="btn btn-success " onclick="addRow()">+ Add Item</button> 
    <table class="table" id="bill-table">
       <thead>
         <tr>
-          <th>Item</th>
+          <th>Product</th>
           <th>Quantity</th>
           <th>Price</th>
-          <th>Total</th>
+          <th>Amount</th>
           <th>Action</th>
           </tr>
       </thead>
@@ -219,12 +219,12 @@
         <tr>
          <td class="col-md-2">
             <select id="productName" class = "form-control" name="productName" onchange="setPrice(this)">
-                <option value="" data-price="0">Select a prodect</option>
-                <option value="Mountain Bike" data-price="399">Mountain Bike</option>
-                <option value="Road Bike" data-price="549">Road Bike</option>
-                <option value="Hybrid Bike" data-price="279">Hybrid Bike</option>
-                <option value="Electric Bike" data-price="1299">Electric Bike</option>
-                <option value="Folding Bike" data-price="429">Folding Bike</option>
+                <option value="" data-price="0">Select a product</option>
+                <option value="Headphones" data-price="19">Headphones</option>
+                <option value="Laptop" data-price="799">Laptop</option>
+                <option value="Wireless Mouse" data-price="24">Wireless Mouse</option>
+                <option value="Smartwatch" data-price="129">Smartwatch</option>
+                <option value="Gaming Keyboard" data-price="49">Gaming Keyboard</option>
               </select>
          </td>
           <td class="col-md-2">
@@ -237,7 +237,7 @@
             <input type="number" class="form-control"  name="totalAmount" placeholder="Enter total" readonly>
           </td>
           <td class="col-md-2">
-          <!-- <button type="button" class="btn btn-primary">Edit</button>  -->
+          <button type="button" class="btn btn-primary">Edit</button> 
             <button type="button" class="btn btn-danger" onclick="deleteRow(this)">Delete</button>
           </td>
            </tr>
@@ -252,123 +252,522 @@
   
  </div>
     <div id="total1" class="total"></div>
-    <button id="save" class="btn btn-primary print-button sav" >Save</button>
+    <button id="save" type="submit" class="btn btn-primary print-button sav" onsubmit="handleSubmit(event)">Save</button>
     <button id="can" class="btn btn-primary print-button can" onclick="window.location.href='table.html'">Cancel</button>
- </div>
-
-</body>
-</html>
-
-
  
- <!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Bill Generator</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="form.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="form.js"></script>
-</head>
-<body>
-    <header class="bg-dark text-white text-center hd">
-        <h1>Shopping Bill Generator</h1>
-    </header>
-    <div id="deteils" class="container ">
-        <h4 class="head text-center">Customer Details</h4>
-        <form id="billing-form" onsubmit="handleSubmit(event)">
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="customerName">Customer Name:</label>
-                    <input type="text" class="form-control" id="customerName" name="customerName" placeholder="Enter customer name">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="purchase-date">Purchase Date:</label>
-                    <input type="date" class="form-control" id="purchase-date" name="purchase-date">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="mobileNo">Phone Number:</label>
-                    <input type="number" class="form-control" id="mobileNo" name="mobileNo" placeholder="Enter your phone number">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="email">Email:</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="address">Address:</label>
-                    <input type="text" class="form-control" id="address" name="address" placeholder="Enter your current address">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="gender">Gender:</label>
-                    <select class="form-control" id="gender" name="gender">
-                        <option value="">Select Gender</option>
-                        <option value="MALE">Male</option>
-                        <option value="FEMALE">Female</option>
-                        <option value="OTHER">Other</option>
-                    </select>
-                </div>
-            </div>
-            <div id="show" class="container-custom">
-                <h4 class=" list text-center ">Billing List</h4>
-                <button id="add" type="button" class="btn btn-success mb-2" onclick="addRow()">+ Add Row</button>
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="bill-table">
-                        <thead>
-                            <tr>
-                                <th>Product</th>
-                                <th>Quantity</th>
-                                <th>Price</th>
-                                <th>Amount</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <select id="productName" class="form-control" name="productName" onchange="setPrice(this)">
-                                        <option value="" data-price="0">Select a product</option>
-                                        <option value="Headphones" data-price="19">Headphones</option>
-                                        <option value="Laptop" data-price="799">Laptop</option>
-                                        <option value="Wireless Mouse" data-price="24">Wireless Mouse</option>
-                                        <option value="Smartwatch" data-price="129">Smartwatch</option>
-                                        <option value="Gaming Keyboard" data-price="49">Gaming Keyboard</option>
-                                    </select>
-                                </td>
-                                <td><input type="number" class="form-control" name="quantity" placeholder="Enter quantity" required></td>
-                                <td><input type="number" class="form-control" name="price" readonly></td>
-                                <td><input type="number" class="form-control" name="totalAmount" readonly></td>
-                                <td>
-                                    <button type="button" class="btn btn-danger" onclick="deleteRow(this)">Delete</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="total text-right mt-4">
-                    <p>Subtotal: $<span id="subtotal">0.00</span></p>
-                    <p>GST (5%): $<span id="gst">0.00</span></p>
-                    <p>Discount (10%): $<span id="discount">0.00</span></p>
-                    <h4>Total: $<span id="total">0.00</span></h4>
-                </div>
-            </div>
-            <div class="text my-4">
-                <input id="save" type="submit" class="btn btn-success" value="Save">
-                <input id="can" type="button" class="btn btn-danger" value="Cancel">
-            </div>
-        </form>
-    </div>
-    <script src="form.js"></script>
+</form>
 </body>
 </html>
 
 
 
-    -->
+  -->
+
+
+
+  <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bill Making System</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Courier New', Courier, monospace;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f0d5;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 20px 0;
+      color: #a13d63;
+      text-transform: uppercase;
+    }
+
+    .container-custom {
+      background: #fef3d1;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s, transform 0.3s;
+      position: relative;
+      overflow: hidden;
+      background-image: url('https://www.transparenttextures.com/patterns/paper.png');
+      padding: 20px;
+    }
+
+    .container-custom::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://www.transparenttextures.com/patterns/paper.png');
+      opacity: 0.1;
+      pointer-events: none;
+    }
+
+    .container-custom:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      transform: translateY(-2px);
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="number"],
+    input[type="email"] {
+      background: #fef3d1;
+      color: #a13d63;
+    }
+
+    input[type="text"]::placeholder,
+    input[type="number"]::placeholder,
+    input[type="email"]::placeholder,
+    input[type="date"]::placeholder {
+      color: #a13d63;
+      font-style: italic;
+    }
+
+    input[type="text"]:focus,
+    input[type="number"]:focus {
+      background: #f7f0d5;
+      border-color: #f7f0d5;
+      box-shadow: 0 0 5px rgba(161, 61, 99, 0.5);
+      color: #333;
+    }
+
+    .total {
+      font-weight: bold;
+      text-align: right;
+      color: #a13d63;
+      margin-right: 280px;
+    }
+
+    .print-button {
+      background-color: #a13d63;
+      color: white;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .print-button:hover {
+      background-color: #7a2952;
+      transform: scale(1.05);
+    }
+
+    .delete-button {
+      background-color: #dc3545;
+      color: white;
+      transition: background-color 0.3s;
+    }
+
+    .delete-button:hover {
+      background-color: #c82333;
+    }
+
+    .add {
+      margin-left: 997px;
+      margin-top: -5px;
+      position: fixed-top;
+    }
+
+    .ad {
+      margin-left: -12px;
+      width: 542px;
+    }
+
+    .ph {
+      margin-left: -12px;
+      width: 540px;
+      background-color: #FEF3D1;
+      color: #a13d63;
+    }
+
+    .tom {
+      margin-top: 25px;
+    }
+
+    .bil {
+      margin-top: 10px;
+    }
+
+    .People {
+      margin-top: -250px;
+    }
+
+    .card {
+      height: 320px;
+      padding-top: 20px;
+    }
+
+    .html {
+      margin-top: -60px;
+    }
+
+    .htl {
+      margin-top: -68px;
+    }
+
+    .html1 {
+      margin-top: -64px;
+    }
+
+    .htl1 {
+      margin-top: -68px;
+    }
+
+    .can {
+      margin-top: 15px;
+      margin-bottom: 20px;
+    }
+
+    .sav {
+      margin-left: 790px;
+      margin-top: 15px;
+      margin-bottom: 20px;
+    }
+  </style>
+  <!-- <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const addRowButton = document.getElementById("add");
+      const billTable = document.getElementById("bill-table").getElementsByTagName('tbody')[0];
+      const subtotalEl = document.getElementById("subtotal");
+      const gstEl = document.getElementById("gst");
+      const discountEl = document.getElementById("discount");
+      const totalEl = document.getElementById("total");
+
+      addRowButton.addEventListener("click", addRow);
+
+      function addRow() {
+        const newRow = billTable.insertRow();
+        newRow.innerHTML = `
+          <td class="col-md-2">
+            <select class="form-control" name="productName" onchange="setPrice(this)">
+              <option value="" data-price="0">Select a product</option>
+              <option value="Headphones" data-price="19">Headphones</option>
+              <option value="Laptop" data-price="799">Laptop</option>
+              <option value="Wireless Mouse" data-price="24">Wireless Mouse</option>
+              <option value="Smartwatch" data-price="129">Smartwatch</option>
+              <option value="Gaming Keyboard" data-price="49">Gaming Keyboard</option>
+            </select>
+          </td>
+          <td class="col-md-2">
+            <input type="number" class="form-control" name="quantity" placeholder="Enter quantity" required>
+          </td>
+          <td class="col-md-2">
+            <input type="number" class="form-control" name="price" placeholder="Enter price" readonly>
+          </td>
+          <td class="col-md-2">
+            <input type="number" class="form-control" name="totalAmount" placeholder="Enter total" readonly>
+          </td>
+          <td class="col-md-2">
+            <button type="button" class="btn btn-danger delete-button" onclick="deleteRow(this)">Delete</button>
+          </td>
+        `;
+      }
+
+      function setPrice(selectElement) {
+        const price = selectElement.options[selectElement.selectedIndex].getAttribute("data-price");
+        const row = selectElement.closest("tr");
+        const priceInput = row.querySelector("input[name='price']");
+        const quantityInput = row.querySelector("input[name='quantity']");
+        const totalAmountInput = row.querySelector("input[name='totalAmount']");
+
+        priceInput.value = price;
+        quantityInput.addEventListener("input", () => {
+          totalAmountInput.value = quantityInput.value * price;
+          calculateTotals();
+        });
+        calculateTotals();
+      }
+
+      function calculateTotals() {
+        let subtotal = 0;
+        billTable.querySelectorAll("tr").forEach(row => {
+          const totalAmount = parseFloat(row.querySelector("input[name='totalAmount']").value) || 0;
+          subtotal += totalAmount;
+        });
+
+        const gst = subtotal * 0.05;
+        const discount = subtotal * 0.10;
+        const total = subtotal + gst - discount;
+
+        subtotalEl.textContent = subtotal.toFixed(2);
+        gstEl.textContent = gst.toFixed(2);
+        discountEl.textContent = discount.toFixed(2);
+        totalEl.textContent = total.toFixed(2);
+      }
+
+      window.setPrice = setPrice;
+
+      function deleteRow(button) {
+        const row = button.closest("tr");
+        row.remove();
+        calculateTotals();
+      }
+
+      window.deleteRow = deleteRow;
+
+      const billingForm = document.getElementById("billing-form");
+      billingForm.addEventListener("submit", handleSubmit);
+
+      function handleSubmit(event) {
+        event.preventDefault();
+        alert("Form submitted!");
+      }
+    });
+
+
+    fetch('http://localhost:8080/api/invoice/buy/product', {
+method: 'POST',
+headers: {
+'Content-Type': 'application/json'
+},
+body: JSON.stringify(payload)
+})
+.then(response => {
+if (!response.ok) {
+return response.json().then(data => {
+throw new Error(`API Error: ${data.error.code} - ${data.error.reason}`);
+});
+}
+return response.json();
+})
+.then(data => {
+console.log('Success:', data);
+// Handle successful response, e.g., display a success message
+alert('Order placed successfully!');
+})
+.catch(error => {
+console.error('Error:', error);
+// Handle error, e.g., display an error message
+if (error.message.includes('409 CONFLICT')) {
+alert('Conflict occurred. Please check your data for duplicates or inconsistencies.');
+} else if (error.message.includes('400 BAD_REQUEST')) {
+alert('Invalid data. Please check your inputs.');
+} else {
+alert('An error occurred. Please try again later.');
+}
+});
+
+
+  </script> -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const addRowButton = document.getElementById("add");
+        const billTable = document.getElementById("bill-table").getElementsByTagName('tbody')[0];
+        const subtotalEl = document.getElementById("subtotal");
+        const gstEl = document.getElementById("gst");
+        const discountEl = document.getElementById("discount");
+        const totalEl = document.getElementById("total");
+
+        addRowButton.addEventListener("click", addRow);
+
+        function addRow() {
+            const newRow = billTable.insertRow();
+            newRow.innerHTML = `
+                <td class="col-md-2">
+                    <select class="form-control" name="productName" onchange="setPrice(this)">
+                        <option value="" data-price="0">Select a product</option>
+                        <option value="Headphones" data-price="19">Headphones</option>
+                        <option value="Laptop" data-price="799">Laptop</option>
+                        <option value="Wireless Mouse" data-price="24">Wireless Mouse</option>
+                        <option value="Smartwatch" data-price="129">Smartwatch</option>
+                        <option value="Gaming Keyboard" data-price="49">Gaming Keyboard</option>
+                    </select>
+                </td>
+                <td class="col-md-2">
+                    <input type="number" class="form-control" name="quantity" placeholder="Enter quantity" required>
+                </td>
+                <td class="col-md-2">
+                    <input type="number" class="form-control" name="price" placeholder="Enter price" readonly>
+                </td>
+                <td class="col-md-2">
+                    <input type="number" class="form-control" name="totalAmount" placeholder="Enter total" readonly>
+                </td>
+                <td class="col-md-2">
+                    <button type="button" class="btn btn-danger delete-button" onclick="deleteRow(this)">Delete</button>
+                </td>
+            `;
+        }
+
+        function setPrice(selectElement) {
+            const price = selectElement.options[selectElement.selectedIndex].getAttribute("data-price");
+            const row = selectElement.closest("tr");
+            const priceInput = row.querySelector("input[name='price']");
+            const quantityInput = row.querySelector("input[name='quantity']");
+            const totalAmountInput = row.querySelector("input[name='totalAmount']");
+
+            priceInput.value = price;
+            quantityInput.addEventListener("input", () => {
+                totalAmountInput.value = quantityInput.value * price;
+                calculateTotals();
+            });
+            calculateTotals();
+        }
+
+        function calculateTotals() {
+            let subtotal = 0;
+            billTable.querySelectorAll("tr").forEach(row => {
+                const totalAmount = parseFloat(row.querySelector("input[name='totalAmount']").value) || 0;
+                subtotal += totalAmount;
+            });
+
+            const gst = subtotal * 0.05;
+            const discount = subtotal * 0.10;
+            const total = subtotal + gst - discount;
+
+            subtotalEl.textContent = subtotal.toFixed(2);
+            gstEl.textContent = gst.toFixed(2);
+            discountEl.textContent = discount.toFixed(2);
+            totalEl.textContent = total.toFixed(2);
+        }
+
+        window.setPrice = setPrice;
+
+        function deleteRow(button) {
+            const row = button.closest("tr");
+            row.remove();
+            calculateTotals();
+        }
+
+        window.deleteRow = deleteRow;
+
+        const billingForm = document.getElementById("billing-form");
+        billingForm.addEventListener("submit", handleSubmit);
+
+        function handleSubmit(event) {
+            event.preventDefault();
+
+            const formData = new FormData(billingForm);
+            const payload = {};
+            formData.forEach((value, key) => {
+                payload[key] = value;
+            });
+
+            fetch('http://localhost:8080/api/invoice/buy/product', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    return response.json().then(data => {
+                        throw new Error(`API Error: ${data.error.code} - ${data.error.reason}`);
+                    });
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Success:', data);
+                alert('Order placed successfully!');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                if (error.message.includes('409 CONFLICT')) {
+                    alert('Conflict occurred. Please check your data for duplicates or inconsistencies.');
+                } else if (error.message.includes('400 BAD_REQUEST')) {
+                    alert('Invalid data. Please check your inputs.');
+                } else {
+                    alert('An error occurred. Please try again later.');
+                }
+            });
+        }
+    });
+</script>
+
+</head>
+
+<body>
+  <h1 class="bil">Bill Making System</h1>
+  <div class="container container-custom card">
+    <form id="billing-form" class="mb-4">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="customerName">Customer Name</label>
+          <input type="text" class="form-control" id="customerName" name="customerName" placeholder="Enter Your Name" required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="mobileNo">Phone Num</label>
+          <input type="number" class="form-control" id="mobileNo" name="mobileNo" placeholder="Enter Your Num" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
+        </div>
+      </div>
+      <div class="d-flex">
+        <div class="form-group col-md-6">
+          <label for="address" class="ad">Address</label>
+          <textarea class="form-control ph" id="address" name="address" placeholder="Enter Your Address" required></textarea>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="gender">Gender</label><br>
+          <input type="radio" id="gender" name="gender" value="MALE">
+          <label for="male">Male</label><br>
+          <input type="radio" id="gender" name="gender" value="FEMALE">
+          <label for="female">Female</label><br>
+        </div>
+      </div>
+  </div>
+  <div class="container container-custom tom" id="show">
+    <button id="add" type="button" class="btn btn-success">+ Add Item</button>
+    <table class="table" id="bill-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Amount</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-md-2">
+            <select id="productName" class="form-control" name="productName" onchange="setPrice(this)">
+              <option value="" data-price="0">Select a product</option>
+              <option value="Headphones" data-price="19">Headphones</option>
+              <option value="Laptop" data-price="799">Laptop</option>
+              <option value="Wireless Mouse" data-price="24">Wireless Mouse</option>
+              <option value="Smartwatch" data-price="129">Smartwatch</option>
+              <option value="Gaming Keyboard" data-price="49">Gaming Keyboard</option>
+            </select>
+          </td>
+          <td class="col-md-2">
+            <input type="number" class="form-control" name="quantity" placeholder="Enter quantity" required>
+          </td>
+          <td class="col-md-2">
+            <input type="number" class="form-control" name="price" placeholder="Enter price" readonly>
+          </td>
+          <td class="col-md-2">
+            <input type="number" class="form-control" name="totalAmount" placeholder="Enter total" readonly>
+          </td>
+          <td class="col-md-2">
+            <button type="button" class="btn btn-danger delete-button" onclick="deleteRow(this)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="total mt-4">
+      <p>Subtotal: Rs.<span id="subtotal">0.00</span></p>
+      <p>GST (5%): Rs.<span id="gst">0.00</span></p>
+      <p>Discount (10%): Rs.<span id="discount">0.00</span></p>
+      <h4>Total: Rs.<span id="total">0.00</span></h4>
+    </div>
+  </div>
+  <div id="total1" class="total"></div>
+  <button id="save" type="submit" class="btn btn-primary print-button sav">Save</button>
+  <button id="can" type="button" class="btn btn-primary print-button can" onclick="window.location.href='table.html'">Cancel</button>
+  </form>
+</body>
+
+</html>
+
