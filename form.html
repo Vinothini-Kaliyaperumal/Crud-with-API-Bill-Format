@@ -1,284 +1,13 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bill Making System</title>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <script src="form.js"></script>
-  <style>
-    body {
-      font-family: 'Courier New', Courier, monospace;
-      margin: 0;
-      padding: 0;
-      background-color: #f7f0d5;
-    }
-
-    h1 {
-      text-align: center;
-      margin: 20px 0;
-      color: #a13d63;
-      text-transform: uppercase;
-    }
-
-    .container-custom {
-      background: #fef3d1;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transition: box-shadow 0.3s, transform 0.3s;
-      position: relative;
-      overflow: hidden;
-      background-image: url('https://www.transparenttextures.com/patterns/paper.png');
-      padding: 20px;
-    }
-
-    .container-custom::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('https://www.transparenttextures.com/patterns/paper.png');
-      opacity: 0.1;
-      pointer-events: none;
-    }
-
-    .container-custom:hover {
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-      transform: translateY(-2px);
-    }
-
-    input[type="text"],
-    input[type="date"],
-    input[type="number"],
-    input[type="email"],
-    option[value="Prodect 1"] {
-      background: #fef3d1;
-      color: #a13d63;
-    }
-
-    input[type="text"]::placeholder,
-    input[type="number"]::placeholder,
-    input[type="email"]::placeholder,
-    input[type="date"]::placeholder,
-    select[value=""]::placeholder {
-      color: #a13d63;
-      font-style: italic;
-    }
-
-    input[type="text"]:focus,
-    input[type="number"]:focus {
-      background: #f7f0d5;
-      border-color: #f7f0d5;
-      box-shadow: 0 0 5px rgba(161, 61, 99, 0.5);
-      color: #333;
-    }
-
-    .total {
-      font-weight: bold;
-      text-align: right;
-      color: #a13d63;
-      margin-right: 280px;
-    }
-
-    .print-button {
-      background-color: #a13d63;
-      color: white;
-      transition: background-color 0.3s, transform 0.3s;
-    }
-
-    .print-button:hover {
-      background-color: #7a2952;
-      transform: scale(1.05);
-    }
-
-    .delete-button {
-      background-color: #dc3545;
-      color: white;
-      transition: background-color 0.3s;
-    }
-
-    .delete-button:hover {
-      background-color: #c82333;
-    }
-
-    .add{
-      margin-left: 997px;
-      margin-top: -5px;
-      /* margin-bottom: -60px; */
-      position: fixed-top;
-    }
-    .ad{
-      margin-left: -12px;
-      width: 542px;
-     }
-     .arow{
-      margin-left: 978px;
-     }
-    .ph{
-      margin-left: -12px;
-      width: 540px;
-      background-color: #FEF3D1;
-      color: #a13d63;
-    }
-    .tom{
-      margin-top: 25px;
-      /* height: 230px; */
-    }
-    .bil{
-      margin-top: 10px;
-    }
-    .People{
-        /* margin-left: 550px ; */
-        margin-top: -250px;
-      }
-     .card{
-       height: 320px; 
-      padding-top: 20px;
-     }
-     .html{
-      /* margin-left: 570px; */
-      margin-top: -60px;
-     }
-     .htl{
-      /* margin-left:590px ; */
-      margin-top: -68px;
-     }
-     .html1{
-      /* margin-left: 660px; */
-      margin-top: -64px;
-     }
-     .htl1{
-      /* margin-left:680px ; */
-      margin-top: -68px;
-     } 
-     .can{
-      /* margin-left: 1140px; */
-      margin-top: 15px;
-      margin-bottom: 20px;
-     }
-     .sav{
-      margin-left:790px ;
-      margin-top: 15px;
-      margin-bottom: 20px;
-    }
-</style>
-</head>
-
-<body>
-  <h1 class="bil">Bill Making System</h1>
-  <div class="container container-custom card">
-    <form id="billing-form" class="mb-4" >
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="customerName">Customer Name</label>
-          <input type="text" class="form-control" id="customerName" name="customerName" placeholder="Enter Your Name">
-        </div>
-        <div class="form-group col-md-6">
-          <label for="mobileNo">Phone Num</label>
-          <input type="number" class="form-control" id="mobileNo" name="mobileNo" placeholder="Enter Your Num">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="email">Email</label>
-          <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email">
-        </div>
-        <div class="form-group col-md-6" >
-          <label for="purchase-date">Purchase Date</label>
-          <input type="date" class="form-control" id="purchase-date" name="purchase-date" placeholder="(dd/mm/yy)" >
-        </div>
-      </div>
-<div  class="d-flex">
-      <div class="form-group col-md-6">
-        <label for="address" class="ad">Address</label>
-        <textarea class="form-control ph" id="address" name="address" placeholder="Enter Your Address" ></textarea>
-    </div>
-     <div class="form-group col-md-6">
-        <label for="gender">Gender</label><br>
-        <input type="radio" id="gender" name="gender" value="male">
-        <label for="male" >Male</label><br>
-        <input type="radio" id="gender" name="gender" value="female">
-        <label for="female">Female</label><br>
-    </div>
-  </div>
-    
-  </div>
-   <div class="container container-custom tom" id="show">
-    <button id="add" type="button" class="btn btn-success arow" onclick="addRow()">+ Add Item</button> 
-   <table class="table" id="bill-table">
-      <thead>
-        <tr>
-         <th>S.No</th>
-          <th>Product</th>
-          <th>Quantity</th>
-          <th>Price</th>
-          <th>Amount</th>
-          <th>Action</th>
-          </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <ol>
-              <li></li>
-            </ol> 
-          </td> 
-         <td class="col-md-2">
-            <select id="productName" class = "form-control" name="productName" onchange="setPrice(this)">
-                <option value="" data-price="0">Select a product</option>
-                <option value="Headphones" data-price="19">Headphones</option>
-                <option value="Laptop" data-price="799">Laptop</option>
-                <option value="Wireless Mouse" data-price="24">Wireless Mouse</option>
-                <option value="Smartwatch" data-price="129">Smartwatch</option>
-                <option value="Gaming Keyboard" data-price="49">Gaming Keyboard</option>
-              </select>
-         </td>
-          <td class="col-md-2">
-            <input type="number" class="form-control" name="quantity" placeholder="Enter quantity" required>
-          </td>
-          <td class="col-md-2">
-            <input type="number" class="form-control"  name="price" placeholder="Enter price" readonly>
-          </td>
-          <td class="col-md-2">
-            <input type="number" class="form-control"  name="totalAmount" placeholder="Enter total" readonly>
-          </td>
-          <td class="col-md-2">
-            <button type="button" class="btn btn-primary">Edit</button>  
-            <button type="button" class="btn btn-danger" onclick="deleteRow(this)">Delete</button>
-          </td>
-           </tr>
-      </tbody>
-    </table>
-    <div class="total mt-4">
-      <p>Subtotal: Rs.<span id="subtotal">0.00</span></p>
-      <p>GST (5%): Rs.<span id="gst">0.00</span></p>
-      <p>Discount (10%): Rs.<span id="discount">0.00</span></p>
-      <h4>Total: Rs.<span id="total">0.00</span></h4>
-  </div>
-  
- </div>
-    <div id="total1" class="total"></div>
-    <button id="save" type="submit" class="btn btn-primary print-button sav" onsubmit="handleSubmit(event)">Save</button>
-    <button id="can" class="btn btn-primary print-button can">Cancel</button>
- 
-</form>
-</body>
-</html> -->
 
 
-
-
-
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bill Making System</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" type="text/css" href="form.css"> -->
+    <link rel="stylesheet" type="text/css" href="form.css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -456,8 +185,9 @@
             color: red;
             font-size: 0.875em;
         }
-       
-    </style>
+
+        
+</style>
 </head>
 <body>
     
@@ -499,14 +229,24 @@
                         <span class="error" id="addressError"></span>
                     </div>
                     
-                   <div class="form-group col-md-6">
-                      <label for="gender">Gender</label><br>
+                   <!-- <div class="form-group col-md-6">
+                      <label for="gender" id="gender">Gender</label><br>
                       <input type="radio" id="gender" name="gender" value="MALE">
-                      <label for="male"  >Male</label><br>
+                      <label for="male" id="gender" >Male</label><br>
                       <input type="radio" id="gender" name="gender" value="FEMALE">
-                      <label for="female" >Female</label><br>
+                      <label for="female" id="gender">Female</label><br>
                       <span class="error" id="genderError"></span>
-                  </div> 
+                  </div>  -->
+                  <div class="form-group col-md-6">
+                    <label for="gender">Gender:</label>
+                    <select class="form-control" id="gender" name="gender">
+                        <option value="">Select Gender</option>
+                        <option value="MALE">Male</option>
+                        <option value="FEMALE">Female</option>
+                        <option value="OTHER">Other</option>
+                    </select>
+                    <span  class="error" id="genderError"></span>
+                </div>
                 </div>
             </div>
             
@@ -528,7 +268,7 @@
                         </thead>
                         <tbody class="the1">
                             <tr>
-                                 <td>
+                                 <td class="col-md-2">
                                     <ol><li class="list"></li></ol>
                                 </td> 
                                 <td class="col-md-2">
@@ -566,10 +306,7 @@
                     <h4>Total: $<span id="total">0.00</span></h4>
                 </div>
             </div>
-            <!-- <div class="text my-4 lastbtn text-right">
-                <input id="save" type="submit" class="btn btn-success" value="Save">
-                <input id="can" type="button" class="btn btn-success" value="Cancel">
-            </div> -->
+           
             <div id="total1" class=" text-right">
     <button id="save" type="submit" class="btn btn-primary print-button sav">Save</button>
     <button id="can" class="btn btn-primary print-button can">Cancel</button>
@@ -577,5 +314,164 @@
         </form>
     </div>
 </body>
-</html>
+</html> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Bill Generator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="form.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="form.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="container mainheading text-center hd p-3">
+            <h1>Shopping Bill Generator</h1>
+        </header>
+    </div>
+   
+    <div id="deteils" class="container">
+        <form id="billing-form" onsubmit="handleSubmit(event)">
+            <div class="container-custom page1 mt-5">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="customerName">Customer Name:</label>
+                        <input type="text" class="form-control" id="customerName" name="customerName" placeholder="Enter customer name">
+                        <span  class="error" id="customerNameError"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="purchase-date">Purchase Date:</label>
+                        <input type="date" class="form-control" id="purchase-date" name="purchase-date">
+                        <span  class="error" id="purchaseDateError"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="mobileNo">Phone Number:</label>
+                        <input type="number" class="form-control" id="mobileNo" name="mobileNo" placeholder="Enter your phone number">
+                        <span  class="error" id="mobileNoError"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
+                        <span  class="error" id="emailError"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="address">Address:</label>
+                        <textarea class="form-control" id="address" name="address" placeholder="Enter your current address"></textarea>
+                        <span  class="error" id="addressError"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="gender">Gender:</label>
+                        <select class="form-control" id="gender" name="gender">
+                            <option value="">Select Gender</option>
+                            <option value="MALE">Male</option>
+                            <option value="FEMALE">Female</option>
+                            <option value="OTHER">Other</option>
+                        </select>
+                        <span  class="error" id="genderError"></span>
+                    </div>
+                </div>
+               
+            </div>
+
+            <div id="show" class="container-custom mt-5">
+                
+                <div class="text-right">
+                   
+                    <button id="add" type="button" class="btn btn-success mb-2" onclick="addRow()" disabled>+ Add Row</button>
+                    <button id="add" type="button" class="btn btn-success mb-2" onclick="addRow()" disabled>+ Add Row</button>
+
+                <div class="table-responsive">
+                </div>
+                    <table class="table table-bordered" id="bill-table">
+                        <thead class="tableheading">
+                            <tr>
+                                <th>Sl</th>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Amount</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <ol><li class="list"></li></ol>
+                                </td>
+                                <td>
+                                    <select id="productName" class="form-control" name="productName" onchange="setPrice(this)">
+                                        <option value="" data-price="0">Select a product</option>
+                                        <option value="Headphones" data-price="19">Headphones</option>
+                                        <option value="Laptop" data-price="799">Laptop</option>
+                                        <option value="Wireless Mouse" data-price="24">Wireless Mouse</option>
+                                        <option value="Smartwatch" data-price="129">Smartwatch</option>
+                                        <option value="Gaming Keyboard" data-price="49">Gaming Keyboard</option>
+                                    </select>
+                                    <span  class="error productNameError"></span>
+                                </td>
+                                <td><input type="number" class="form-control" name="quantity" placeholder="Enter quantity">
+                                    <span  class="error quantityError"></span>
+                                </td>
+                                
+
+                                <td><input type="number" class="form-control" name="price" readonly></td>
+                                <td><input type="number" class="form-control" name="totalAmount" readonly></td>
+                                <td>
+                                    <button type="button" class="btn btn-danger" onclick="deleteRow(this)">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="total text-right mt-4">
+                    <p>Subtotal: $<span id="subtotal">0.00</span></p>
+                    <p>GST (5%): $<span id="gst">0.00</span></p>
+                    <p>Discount (10%): $<span id="discount">0.00</span></p>
+                    <h4>Total: $<span id="total">0.00</span></h4>
+                </div>
+            </div>
+            <div class="text my-4 lastbtn text-right">
+                <input id="save" type="submit" class="btn btn-success" value="Save" window.location.href = table.html>
+                <input id="can" type="button" class="btn btn-success" value="Cancel">
+            </div>
+        </form>
+    </div>
+    
+</body>
+</html> 
+ -->
+
+
+
+
+
+
+
+
+
 
