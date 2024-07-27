@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="guess" style="padding: 20px;">
+    <button  style="padding: 20px; onclick="clickhere">push</button>
+    <p id="seeHere"></p>
+    <script>
+        var guessNum = document.getElementById("guess")
+        var result = document.getElementById("seaHere")
+        var random = Math.floor(Math.random()*10)+1
+        function clickhere(){
+            var enteredNum = guessNum.value
+            if(random==enteredNum)
+        {
+            result.textContent = "YOU WON"
+            alert("congradulations")
+        }
+        else{
+            result.textContent("TRY AGAIN")
+            alert("TRY AGAIN")
+        }
+        }
+    </script>
+</body>
+</html>
