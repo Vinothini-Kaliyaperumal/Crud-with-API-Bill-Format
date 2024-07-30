@@ -1,5 +1,3 @@
-
-
 // Products array
 var products = [
     { name: "Select a product", price: 0, quantity: 0 },
@@ -136,17 +134,16 @@ function updateRowNumbers() {
     }
 }
 
-// Handle form submit function
-function handleSubmit(event) {
+async function handleSubmit(event) {
     event.preventDefault();
-    var isValid = true;
+    let isValid = true;
 
     // Clear previous errors
-    document.querySelectorAll('.error').forEach(function(el) {
+    document.querySelectorAll('.error').forEach(el => {
         el.textContent = '';
     });
 
-    // Validation checks
+    // Validate form inputs
     const customerName = document.getElementById('customerName').value;
     const purchaseDate = document.getElementById('purchase-date').value;
     const mobileNo = document.getElementById('mobileNo').value;
@@ -185,13 +182,15 @@ function handleSubmit(event) {
     }
 
     const productRows = document.querySelectorAll('#bill-table tbody tr');
-    productRows.forEach(row => {
-    event.preventDefault();
+    const availabilityChecks = [];
+    const errors = [];
 
+    productRows.forEach(row => {
         const productName = row.querySelector('select[name="productName"]').value;
         const quantity = row.querySelector('input[name="quantity"]').value;
         const quantityError = row.querySelector('.quantityError');
         const productNameError = row.querySelector('.productNameError');
+        
         if (!productName || productName === 'Select a product') {
             productNameError.textContent = 'Product is required.';
             isValid = false;
@@ -200,7 +199,31 @@ function handleSubmit(event) {
             quantityError.textContent = 'Quantity must be greater than zero.';
             isValid = false;
         }
+        
+        if (productName && quantity > 0) {
+            availabilityChecks.push(
+                fetch(`http://localhost:8080/api/product/get/product/${productName}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        isValid = false;
+                        quantityError.textContent = data.error.reason || 'Unable to check product availability.';
+                    } else if (data.stock < quantity) {
+                        isValid = false;
+                        quantityError.textContent = `Only ${data.stock} units available.`;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    isValid = false;
+                    quantityError.textContent = 'Unable to check product availability.';
+                })
+            );
+        }
     });
+
+    // Wait for all availability checks to complete
+    await Promise.all(availabilityChecks);
 
     if (!isValid) return;
 
@@ -222,39 +245,39 @@ function handleSubmit(event) {
         gender,
         customerProduct
     };
-    console.log(payload);
 
     // Send the POST request
-    fetch('http://localhost:8080/api/invoice/buy/product', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payload)
-    })
-    .then(response => {
+    try {
+        const response = await fetch('http://localhost:8080/api/invoice/buy/product', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        });
+
+        const data = await response.json();
+
         if (!response.ok) {
-            return response.json().then(data => {
-                throw new Error(`API Error: ${data.error.code} - ${data.error.reason}`);
-            });
+            throw new Error(data.error ? data.error.reason : 'Unknown error occurred');
         }
-        return response.json();
-    })
-    .then(data => {
-        console.log('Success:', data);
-        // Handle successful response, e.g., display a success message
+
+        // Handle successful response
         alert('Order placed successfully!');
-         window.location.href = "table.html"
-    })
-    .catch(error => {
+        window.location.href = "table.html";
+    } catch (error) {
         console.error('Error:', error);
-        // Handle error, e.g., display an error message
-        if (error.message.includes('409 CONFLICT')) {
-            alert('Conflict occurred. Please check your data for duplicates or inconsistencies.');
-        } else if (error.message.includes('400 BAD_REQUEST')) {
-            alert('Invalid data. Please check your inputs.');
-        } else {
-            alert('An error occurred. Please try again later.');
-        }
-    });
+
+        // Display only the relevant error message
+        const formErrorDiv = document.getElementById('formError');
+        formErrorDiv.textContent = `Error: ${error.message}`;
+        formErrorDiv.style.display = 'block';
+    }
 }
+
+
+
+
+
+
+

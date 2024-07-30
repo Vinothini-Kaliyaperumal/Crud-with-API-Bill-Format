@@ -1,42 +1,4 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Table Page</title>
-    <link rel="stylesheet" href="table.css">
-    <script src="table.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-</head>
-<body>
-    <div class="container tab">
-        <h2 class="details text-center text-black ">Customer Profile</h2>
-        
-        <div class=" mt-4 table-responsive p-4 card">
-          <table class="table-striped table " id="table">
-            <thead>
-              <tr>
-                <th>Customer Name</th>
-                <th>Purchase Date</th>
-                <th>Phone Num</th>
-                <th>Email</th>
-                <th>Address</th>
-                <th>Gender</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody id="tabledata">
-            </tbody>
-          </table>
-        </div>
-      </div>
-</body>
-</html>
-
-
- -->
- <!DOCTYPE html>
+ <!-- <!DOCTYPE html>
  <html lang="en">
  <head>
      <meta charset="UTF-8">
@@ -47,22 +9,9 @@
      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-     <style>
-         table {
-             width: 100%;
-             border-collapse: collapse;
-         }
-         th, td {
-             border: 1px solid #ddd;
-             padding: 8px;
-         }
-         th {
-             background-color: #f2f2f2;
-         }
-     </style>
  </head>
  <body>
-     <h1>Customer Invoices</h1>
+     <h1 class="mt-3 mb-5">Customer Invoices</h1>
      <table id="invoiceTable">
          <thead>
              <tr>
@@ -74,12 +23,86 @@
                  <th>Gender</th>
                  <th>Action</th>
              </tr>
-         </thead>
+         </thead     >
          <tbody>
-             <!-- Table rows will be populated here -->
          </tbody>
      </table>
  
      <script src="table.js"></script>
  </body>
- </html>
+ </html> -->
+
+
+
+
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Invoices</title>
+    <link rel="stylesheet" href="table.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="table.js"></script>
+    <style>
+        body{
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin-left: 140px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+        .in {
+            margin-left: 500px;
+            padding-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="in">Customer Invoices</h1>
+    <button id="showProductsBtn" class="btn btn-secondary" style="margin-bottom: 30px; margin-left: 520px; margin-top: -20px;">Show Customer and Bought Products</button>
+    <table id="invoiceTable">
+        <thead class="ca">
+            <tr>
+                <th>Customer Name</th>
+                <th>Purchase Date</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Gender</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</body>
+</html> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
