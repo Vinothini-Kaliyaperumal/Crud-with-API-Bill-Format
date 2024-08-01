@@ -1,0 +1,251 @@
+/* *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+.mainheading{
+    background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
+    color: white;
+}
+.tableheading{
+    background-color: #240747;
+    color: white;
+    font-size: 20px;
+}
+.lastbtn{
+    margin-right: 100px;
+}
+.total{
+    margin-right: 120px;
+}
+.error{
+    color: red;
+    font-size: 0.875em;
+}
+.list{
+    margin-left: 15px;
+}
+
+.alert{
+    margin-right: 420px;
+    background-color: white;
+    color: red;
+    border: none;
+    margin-top: -15px;
+} */
+
+
+
+
+
+
+
+
+
+
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f0d5;
+  }
+
+  h1 {
+    text-align: center;
+    margin: 20px 0;
+    color: #a13d63;
+    text-transform: uppercase;
+  }
+
+  .container-custom {
+    background: #fef3d1;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s, transform 0.3s;
+    position: relative;
+    overflow: hidden;
+    background-image: url('https://www.transparenttextures.com/patterns/paper.png');
+    padding: 20px;
+  }
+
+  .container-custom::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/paper.png');
+    opacity: 0.1;
+    pointer-events: none;
+  }
+
+  .container-custom:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+  }
+
+  input[type="text"],
+  input[type="date"],
+  input[type="number"],
+  input[type="email"],
+  option[value="Prodect 1"] {
+    background: #fef3d1;
+    color: #a13d63;
+  }
+
+  input[type="text"]::placeholder,
+  input[type="number"]::placeholder,
+  input[type="email"]::placeholder,
+  input[type="date"]::placeholder,
+  select[value=""]::placeholder {
+    color: #a13d63;
+    font-style: italic;
+  }
+
+  input[type="text"]:focus,
+  input[type="number"]:focus {
+    background: #f7f0d5;
+    border-color: #f7f0d5;
+    box-shadow: 0 0 5px rgba(161, 61, 99, 0.5);
+    color: #333;
+  }
+
+  .total {
+    font-weight: bold;
+    text-align: right;
+    color: #a13d63;
+    margin-right: 280px;
+  }
+
+  .print-button {
+    background-color: #a13d63;
+    color: white;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+
+  .print-button:hover {
+    background-color: #7a2952;
+    transform: scale(1.05);
+  }
+
+  .delete-button {
+    background-color: #dc3545;
+    color: white;
+    transition: background-color 0.3s;
+  }
+
+  .delete-button:hover {
+    background-color: #c82333;
+  }
+
+  .add{
+    margin-left: 997px;
+    margin-top: -5px;
+    /* margin-bottom: -60px; */
+    position: fixed-top;
+  }
+  .ad{
+    margin-left: -12px;
+    width: 542px;
+   }
+   .arow{
+    margin-left: 978px;
+   }
+  .ph{
+    margin-left: -12px;
+    width: 540px;
+    background-color: #FEF3D1;
+    color: #a13d63;
+  }
+  .tom{
+    margin-top: 25px;
+    /* height: 230px; */
+  }
+  .bil{
+    margin-top: 10px;
+  }
+  .People{
+      /* margin-left: 550px ; */
+      margin-top: -250px;
+    }
+   .card{
+     height: 320px; 
+    padding-top: 20px;
+   }
+   .html{
+    /* margin-left: 570px; */
+    margin-top: -60px;
+   }
+   .htl{
+    /* margin-left:590px ; */
+    margin-top: -68px;
+   }
+   .html1{
+    /* margin-left: 660px; */
+    margin-top: -64px;
+   }
+   .htl1{
+    /* margin-left:680px ; */
+    margin-top: -68px;
+   } 
+   .can{
+    /* margin-right: 200px; */
+    margin-top: 15px;
+    margin-bottom: 20px;
+   }
+   .sav{
+    /* margin-right:10px ; */
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+  .row{
+    margin-right: -5px;
+  }
+  .list{
+    margin-left:-10px ;
+  }
+  .the{
+    width: 300px;
+  }
+  .the1{
+    width: 300px;
+  }
+  .error {
+          color: red;
+          font-size: 0.875em;
+      }
+     
+  .drop{
+    /* background-color: skyblue; */
+  
+  
+    background: #fef3d1;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s, transform 0.3s;
+    /* position: relative; */
+    /* overflow: hidden; */
+    background-image: url('https://www.transparenttextures.com/patterns/paper.png');
+    /* padding: 20px; */
+  }
+  
+  .drop::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/paper.png');
+    opacity: 0.1;
+    pointer-events: none;
+  }
+
+  .drop:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+  }
+
