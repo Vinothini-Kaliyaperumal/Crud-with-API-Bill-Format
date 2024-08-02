@@ -45,7 +45,7 @@
                         <label for="address">Address</label>
                         <textarea class="form-control" id="address" name="address" placeholder="Enter your current address *"></textarea>
                         <span class="error" id="addressError"></span>
-                    </div>                   
+                    </div>
                    <!-- <div class="form-group col-md-6">
                       <label for="gender" id="gender">Gender</label><br>
                       <input type="radio" id="gender" name="gender" >
@@ -74,9 +74,9 @@
                 <div class="table-responsive">
                     <table class="table" id="bill-table">
                         <thead class="the">
-                            <tr>
-                                <th >Sl</th>
-                                <th>Product</th>
+                            <tr class="serial">
+                                <th class='s'>Sl</th>
+                                <th class="pt">Product</th>
                                 <th>Quantity</th>
                                 <th>Price</th>
                                 <th>Amount</th>
@@ -89,7 +89,7 @@
                                     <ol><li class="list"></li></ol>
                                 </td> 
                                 <td class="col-md-2">
-                                    <select id="productName" class="form-control" name="productName" onchange="setPrice(this)">
+                                    <select id="productName" class="form-control pk" name="productName" onchange="setPrice(this)">
                                         <option value="" data-price="0">Select a product</option>
                                         <option value="Headphones" data-price="19">Headphones</option>
                                         <option value="Laptop" data-price="799">Laptop</option>

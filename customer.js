@@ -200,7 +200,7 @@ async function handleSubmit(event) {
         isValid = false;
     }
 
-    if (!address || address.length < 1 || address.length > 10) {
+    if (!address || address.length < 1 || address.length > 20) {
         document.getElementById('addressError').textContent = 'Address is required.';
         isValid = false;
     }

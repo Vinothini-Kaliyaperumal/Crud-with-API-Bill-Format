@@ -47,9 +47,20 @@
 
 body {
     font-family: 'Courier New', Courier, monospace;
-    margin: 0;
-    padding: 0;
+    /* margin: 0; */
+    /* padding: 0; */
     background-color: #f7f0d5;
+  }
+
+  .s{
+    margin-left: 50px !important;
+    padding-left: 20px !important;
+  }
+  .pk{
+    margin-left: -60px;
+  }
+  .pt{
+    margin-left: 60px;
   }
 
   h1 {
@@ -94,7 +105,7 @@ body {
   option[value="Prodect 1"] {
     background: #fef3d1;
     color: #a13d63;
-  }
+  } 
 
   input[type="text"]::placeholder,
   input[type="number"]::placeholder,
@@ -144,7 +155,6 @@ body {
   .add{
     margin-left: 997px;
     margin-top: -5px;
-    /* margin-bottom: -60px; */
     position: fixed-top;
   }
   .ad{
@@ -162,13 +172,13 @@ body {
   }
   .tom{
     margin-top: 25px;
-    /* height: 230px; */
+   
   }
   .bil{
     margin-top: 10px;
   }
   .People{
-      /* margin-left: 550px ; */
+     
       margin-top: -250px;
     }
    .card{
@@ -176,28 +186,28 @@ body {
     padding-top: 20px;
    }
    .html{
-    /* margin-left: 570px; */
+    
     margin-top: -60px;
    }
    .htl{
-    /* margin-left:590px ; */
+    
     margin-top: -68px;
    }
    .html1{
-    /* margin-left: 660px; */
+   
     margin-top: -64px;
    }
    .htl1{
-    /* margin-left:680px ; */
+    
     margin-top: -68px;
    } 
    .can{
-    /* margin-right: 200px; */
+   
     margin-top: 15px;
     margin-bottom: 20px;
    }
    .sav{
-    /* margin-right:10px ; */
+   
     margin-top: 15px;
     margin-bottom: 20px;
   }
@@ -205,7 +215,7 @@ body {
     margin-right: -5px;
   }
   .list{
-    margin-left:-10px ;
+    margin-left:10px ;
   }
   .the{
     width: 300px;
@@ -218,34 +228,7 @@ body {
           font-size: 0.875em;
       }
      
-  .drop{
-    /* background-color: skyblue; */
-  
-  
-    background: #fef3d1;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s, transform 0.3s;
-    /* position: relative; */
-    /* overflow: hidden; */
-    background-image: url('https://www.transparenttextures.com/patterns/paper.png');
-    /* padding: 20px; */
-  }
-  
-  .drop::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('https://www.transparenttextures.com/patterns/paper.png');
-    opacity: 0.1;
-    pointer-events: none;
-  }
-
-  .drop:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    transform: translateY(-2px);
+  .serial{
+  padding: -60px;
   }
 

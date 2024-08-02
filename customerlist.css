@@ -1,46 +1,32 @@
-/* body {
-    font-family: Arial, sans-serif;
+body{
+    overflow-x: hidden;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 100%;
+    /* background-image:repeating-linear-gradient(to right, #9b51e0 , #cf2e2e);  */
 }
-
-h1 {
+thead{
+    font-size: larger;
+}
+td,thead{
     text-align: center;
 }
-
-table {
-    width: 80%;
-    margin: 0 auto;
-    border-collapse: collapse;
-    box-shadow: 0 5px 10px #e1e1e1;
-}
-
-thead {
-    background-color: #f8f9fa;
-}
-
-th, td {
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-    text-align: left;
-}
-
-th {
-    background-color:#0aa6c3;
+#table th {
+    background-color: rgb(7, 12, 58);
     color: white;
-    text-transform: uppercase;
-    font-size: 14px;
+}
+.card{
+    background-color: rgba(7, 12, 58, 0.059) !important;
+    
+}
+.details{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bold;
+}
+.but{
+    margin-left: 5px;
 }
 
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-tr:hover {
-    background-color: #f1f1f1;
-}
-
-#invoiceTable {
-    margin-bottom: 20px;
-} */
 
 
 
@@ -51,29 +37,3 @@ tr:hover {
 
 
 
-
-
-
-
-
-
-body{
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-table {
-    width: 80%;
-    border-collapse: collapse;
-    margin-left: 140px;
-}
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-}
-th {
-    background-color: #f2f2f2;
-    padding: 20px;
-}
-.in {
-    margin-left: 500px;
-    padding-bottom: 30px;
-}

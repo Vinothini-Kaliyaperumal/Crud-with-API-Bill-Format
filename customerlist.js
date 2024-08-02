@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const viewButton = document.createElement('button');
                 viewButton.textContent = 'View';
-                viewButton.className = 'btn btn-info';
+                viewButton.className = 'btn btn-success';
                 viewButton.onclick = () => {
                     window.location.href = `customerview.html?email=${item.email}`;
                 };
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
                     const editButton = document.createElement('button');
                     editButton.textContent = 'Edit';
-                    editButton.className = 'btn btn-secondary ml-2';
+                    editButton.className = 'btn btn-secondary ml-2 but';
                     editButton.onclick = () => {
                         localStorage.setItem('editCustomer', JSON.stringify(item));
                         window.location.href = 'customer.html';
