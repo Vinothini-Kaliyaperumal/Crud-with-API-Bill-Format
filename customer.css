@@ -1,68 +1,27 @@
-/* *{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Times New Roman', Times, serif;
-}
-.mainheading{
-    background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
-    color: white;
-}
-.tableheading{
-    background-color: #240747;
-    color: white;
-    font-size: 20px;
-}
-.lastbtn{
-    margin-right: 100px;
-}
-.total{
-    margin-right: 120px;
-}
-.error{
-    color: red;
-    font-size: 0.875em;
-}
-.list{
-    margin-left: 15px;
-}
-
-.alert{
-    margin-right: 420px;
-    background-color: white;
-    color: red;
-    border: none;
-    margin-top: -15px;
-} */
-
-
-
-
-
-
-
-
-
-
-
 body {
     font-family: 'Courier New', Courier, monospace;
-    /* margin: 0; */
-    /* padding: 0; */
+    margin: 0;
+    padding: 0;
     background-color: #f7f0d5;
   }
-
-  .s{
-    margin-left: 50px !important;
-    padding-left: 20px !important;
+ 
+ .box{
+    margin-left:-40px;
   }
-  .pk{
-    margin-left: -60px;
+  .dlbox{
+    margin-left:-12px;
   }
-  .pt{
-    margin-left: 60px;
+  .ass{
+    background: #fef3d1;
+    color: #a13d63;
+    font-style: italic;
   }
-
+  .gn{
+    background: #fef3d1;
+    color: #a13d63;
+    font-style: italic;
+  }
+  
   h1 {
     text-align: center;
     margin: 20px 0;
@@ -128,7 +87,7 @@ body {
     font-weight: bold;
     text-align: right;
     color: #a13d63;
-    margin-right: 280px;
+    margin-right: 230px;
   }
 
   .print-button {
@@ -172,63 +131,45 @@ body {
   }
   .tom{
     margin-top: 25px;
-   
-  }
+   }
   .bil{
     margin-top: 10px;
   }
   .People{
-     
-      margin-top: -250px;
+     margin-top: -250px;
     }
    .card{
      height: 320px; 
     padding-top: 20px;
    }
    .html{
-    
     margin-top: -60px;
    }
    .htl{
-    
     margin-top: -68px;
    }
    .html1{
-   
     margin-top: -64px;
    }
    .htl1{
-    
     margin-top: -68px;
    } 
    .can{
-   
     margin-top: 15px;
     margin-bottom: 20px;
+    margin-right: 250px;
    }
    .sav{
-   
     margin-top: 15px;
     margin-bottom: 20px;
+    margin-right: -2px;
   }
   .row{
     margin-right: -5px;
   }
-  .list{
-    margin-left:10px ;
+ .error{
+    color: red;
+    font-size: 0.875em;
   }
-  .the{
-    width: 300px;
-  }
-  .the1{
-    width: 300px;
-  }
-  .error {
-          color: red;
-          font-size: 0.875em;
-      }
      
-  .serial{
-  padding: -60px;
-  }
 

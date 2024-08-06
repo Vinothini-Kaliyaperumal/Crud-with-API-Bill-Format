@@ -1,63 +1,175 @@
 body {
-  background-color: #f8f9fa;
-  font-family: 'Arial', sans-serif;
+  align-items: center;
+  overflow-x: hidden;
 }
-
-.card {
-  border: 1px solid #e0e0e0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.card-header {
-  background-color: #007bff;
+.invoice-header {
+  background-color: #000;
   color: #fff;
-  font-size: 1.5rem;
-  padding: 1rem;
+  padding: 20px;
+  text-align: center;
+  margin-top: -48px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.invoice-header h1 {
+  margin: 0;
+}
+.company-details {
+  margin: 10px 0;
+}
+.invoice-details {
+  margin: 20px 0;
+}
+.invoice-details h5 {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.invoice-summary {
+  margin: 20px 0;
+}
+.invoice-summary h5 {
+  font-weight: bold;
+}
+.table th, .table td {
+  vertical-align: middle;
+  /* margin-left: -50px; */
 }
 
-.card-body {
-  padding: 2rem;
+.total-section {
+  text-align: right;
+}
+.total-section .total-amount {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.payment-method {
+  margin: 20px 0;
+}
+.payment-method h5 {
+  font-weight: bold;
+}
+.footer {
+  text-align: center;
+  margin-top: 50px;
+}
+.footer p {
+  margin: 0;
+}
+.footer .signature {
+  margin-top: 20px;
+}
+.cd{
+  font-size: 25px;
+  padding-bottom: 20px;
+  color: gray;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.eml{
+  margin-left: 300px;
+  margin-top: 10px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 17px;
+
+}
+.gdr{
+  margin-left: 300px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 17px;
+  margin-bottom: 50px;
+}
+.ads{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 17px;
+  margin-top: -78px;
+  margin-left: 20px;
+}
+.ctr{
+  margin-left: 20px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+   font-size: 17px;
+
+}
+.pur{
+  margin-left: 20px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 17px;
+}
+.ph{
+  margin-left: 300px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 17px;
+  margin-top: -80px;
+}
+.high{
+  padding-bottom: -30px;
+}
+.tot{
+  margin-right:3px;
+}
+.pqpt{
+  color: white;
+  background-color: #000;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 17px;
+}
+.tdtdtd{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 17px;
+}
+.lastsection{
+  margin-left: 355px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 18px;
+}
+.tsg{
+  margin-right: 20px;
+}
+.dis{
+  margin-right: 21px;
+}
+.footer{
+  margin-bottom:  20px;
+  font-size: 30px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-h5 {
-  margin-top: 1rem;
-  border-bottom: 1px solid #dee2e6;
-  padding-bottom: 0.5rem;
-}
+@media only screen and (max-width:1024px)and (min-width:769px){
+  .invoice-header h1 {
+      font-size: 1.5rem;
+  }
 
-p {
-  margin-bottom: 0.5rem;
-}
+  .invoice-summary table {
+      font-size: 0.875rem;
+  }
 
-strong {
-  color: #495057;
-}
-
-span {
-  color: #343a40;
+  .total-section {
+      font-size: 0.875rem;
+  }
+  .ads{
+    margin-top: -110px;
+  }
+  .eml{
+    margin-top: -10px;
+  }
+  .pur{
+    margin-top: -5px;
+  }
+  .gdr{
+    margin-top: -15px;
+    margin-left: 20px;
+  }
+  .pqpt{
+    margin-top: -70px;
+  }
+  .lastsection{
+    margin-left: 290px;
+  }
+  .tsg{
+    margin-right: 17px;
+  }
+  .dis{
+    margin-right: 17px;
+  }
+  .table{
+    margin-top: 10px;
+  }
 } 
-  
-  /*{
-      padding: 0;
-      margin: 0;
-      box-sizing: border-box;
-  }
-  #product{
-      background-color: blue;
-  }
-  body{
-      background-color: cadetblue;
-      font-family: 'Times New Roman', Times, serif;
-  } 
-
-
-
-
-
-
-
-
-
-
-
-

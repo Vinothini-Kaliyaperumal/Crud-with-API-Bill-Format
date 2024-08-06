@@ -23,17 +23,39 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('address').textContent = customerData.address;
                 document.getElementById('gender').textContent = customerData.gender;
 
-                const itemsList = document.getElementById('items-list');
-                itemsList.innerHTML = '';
-                if (Array.isArray(customerData.customerProducts) && customerData.customerProducts.length > 0) {
-                    customerData.customerProducts.forEach(item => {
-                        const itemElement = document.createElement('p');
-                        itemElement.textContent = `${item.productName} - $${item.price} (Qty: ${item.quantity})`;
-                        itemsList.appendChild(itemElement);
-                    });
-                } else {
-                    itemsList.textContent = 'No items available';
-                }
+      const itemsList = document.getElementById('items-list');
+itemsList.innerHTML = '';
+
+if (Array.isArray(customerData.customerProducts) && customerData.customerProducts.length > 0) {
+    customerData.customerProducts.forEach(item => {
+        const rowElement = document.createElement('tr');
+
+        const productNameElement = document.createElement('td');
+        productNameElement.textContent = item.productName;
+        rowElement.appendChild(productNameElement);
+
+        const quantityElement = document.createElement('td');
+        quantityElement.textContent = item.quantity;
+        rowElement.appendChild(quantityElement);
+
+        const priceElement = document.createElement('td');
+        priceElement.textContent = `${item.price}`;
+        rowElement.appendChild(priceElement);
+
+        const totalElement = document.createElement('td');
+        totalElement.textContent = `Rs. ${(item.price * item.quantity).toFixed(2)}`;
+        rowElement.appendChild(totalElement);
+
+        itemsList.appendChild(rowElement);
+    });
+} else {
+    const rowElement = document.createElement('tr');
+    const noItemsElement = document.createElement('td');
+    noItemsElement.textContent = 'No items available';
+    noItemsElement.colSpan = 4; 
+    rowElement.appendChild(noItemsElement);
+    itemsList.appendChild(rowElement);
+}
 
                 document.getElementById('subtotal').textContent = invoiceData.totalprouctsAmount.toFixed(2);
                 document.getElementById('gst').textContent = invoiceData.gstAmount.toFixed(2);

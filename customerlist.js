@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const viewButton = document.createElement('button');
                 viewButton.textContent = 'View';
-                viewButton.className = 'btn btn-success';
+                viewButton.className = 'btn btn-success vie';
                 viewButton.onclick = () => {
                     window.location.href = `customerview.html?email=${item.email}`;
                 };
@@ -57,10 +57,10 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             const row = document.createElement('tr');
             const cell = document.createElement('td');
-            cell.colSpan = 7; 
-            cell.textContent = 'No data available';
-            row.appendChild(cell);
-            tableBody.appendChild(row);
+            // cell.colSpan = 7; 
+            // cell.textContent = 'No data available';
+            // row.appendChild(cell);
+            // tableBody.appendChild(row);
         }
     }
 
@@ -88,6 +88,29 @@ document.addEventListener('DOMContentLoaded', () => {
         fetchAndDisplayCustomerData('http://localhost:8080/api/invoice/getAllCustomerAndBuyedProduct');
     });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

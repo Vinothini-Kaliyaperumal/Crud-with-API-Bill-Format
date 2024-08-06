@@ -3,7 +3,16 @@ body{
     padding-top: 30px;
     padding-bottom: 30px;
     width: 100%;
-    /* background-image:repeating-linear-gradient(to right, #9b51e0 , #cf2e2e);  */
+}
+.lic1{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: white;
+    font-size: 19px;
+}
+.lic{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: white;
+    font-size: 17px;
 }
 thead{
     font-size: larger;
@@ -11,29 +20,42 @@ thead{
 td,thead{
     text-align: center;
 }
-#table th {
-    background-color: rgb(7, 12, 58);
-    color: white;
-}
 .card{
     background-color: rgba(7, 12, 58, 0.059) !important;
     
 }
 .details{
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: bold;
+  font-size: 38px;
+  margin-top: -70px;
 }
 .but{
     margin-left: 5px;
 }
 
 
+@media (max-width: 768px) {
+    .details {
+        font-size: 28px;
+    }
+    
+    th, td {
+        font-size: smaller;
+        padding: 5px;
+    }
+    
+    #showProductsBtn {
+        width: 100%;
+    }
+}
 
-
-
-
-
-
-
-
-
+@media only screen and (max-width:1024px)and (min-width:769px){
+    .but{
+        margin-left: 75px;
+        margin-top: -65px;
+    }
+    .vie{
+        margin-left:-50px ;
+    }
+}
