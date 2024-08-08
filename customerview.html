@@ -90,11 +90,14 @@
      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Gupter:wght@400;500;700&family=Merienda:wght@300..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
      <script src="customerview.js"></script>
     </head>
  <body>
     <div class="invoice-2 invoice-content">
-        <div class="container">
+        <div class="container d-flex justify-content-center">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="invoice-inner clearfix">
@@ -114,133 +117,162 @@
                                         <div class="invoice-id">
                                             <div class="info">
                                                 <h1 class="inv-header-1">Invoice</h1>
-                                                <p class="mb-1">Invoice Number: <span>#12345</span></p>
-                                                <p class="mb-0">Invoice Date: <span>01 August 2024</span></p>
+                                                <p class="mb-1">Phone Number: <span id="mobileNo"></span></p>
+                                                <p class="mb-0">Purchase Date: <span id="date"></span></p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="invoice-top">
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="invoice-number mb-30">
                                             <h4 class="inv-title-1">Invoice To</h4>
-                                            <h2 class="name">Jhon Smith</h2>
-                                            <p class="invo-addr-1">
-                                                Theme Vessel <br>
-                                                info@themevessel.com <br>
-                                                21-12 Green Street, Meherpur, Bangladesh <br>
-                                            </p>
+                                            <h2 class="name fw-bold"><span id="customerName"></span></h2>
+                                             <p class="invo-addr-1" ><span id="email"></span></p>
+                                                <p class="invo-addr-1 gen" ><span id="gender"></span></p>
+                                                <p class="invo-addr-1 gen" > <span id="address" ></span></p>
                                         </div>
                                     </div>
-                                    <!-- <div class="col-sm-6">
+                                    <div class="col-sm-6">
                                         <div class="invoice-number mb-30">
                                             <div class="invoice-number-inner">
                                                 <h4 class="inv-title-1">Invoice From</h4>
-                                                <h2 class="name">Animas Roky</h2>
+                                                <h2 class="name">Appu Rocky</h2>
                                                 <p class="invo-addr-1">
-                                                    Apexo Inc  <br>
-                                                    billing@apexo.com <br>
-                                                    169 Teroghoria, Bangladesh <br>
+                                                    Appu Mall  <br>
+                                                    appu@gmail.com <br>
+                                                    168 Anna Nagar, Orathanadu <br>
                                                 </p>
                                             </div>
                                         </div>
-                                    </div> -->
+                                    </div>
                                 </div>
                             </div>
-                            <div class="invoice-center">
+                            <!-- <div class="invoice-center">
                                 <div class="table-responsive">
-                                    <table class="table mb-0 table-striped invoice-table">
+                                    <table class="table mb-0  invoice-table">
                                         <thead class="bg-active">
                                         <tr class="tr">
                                             <th>No.</th>
-                                            <th class="pl0 text-start">Item Description</th>
-                                            <th class="text-center">Price</th>
-                                            <th class="text-center">Quantity</th>
-                                            <th class="text-end">Amount</th>
+                                            <th class=" item">Item Description</th>
+                                            <th class="qn">Quantity</th>
+                                            <th class="pr">Price</th>
+                                            <th class="am">Amount</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <!-- <tr class="tr">
-                                            <td>
-                                                <div class="item-desc-1">
-                                                    <span>01</span>
-                                                </div>
-                                            </td>
-                                            <td class="pl0">Businesscard Design</td>
-                                            <td class="text-center">$300</td>
-                                            <td class="text-center">2</td>
-                                            <td class="text-end">$600.00</td>
-                                        </tr>
-                                        <tr class="bg-grea">
-                                            <td>
-                                                <div class="item-desc-1">
-                                                    <span>02</span>
-    
-                                                </div>
-                                            </td>
-                                            <td class="pl0">Fruit Flayer Design</td>
-                                            <td class="text-center">$400</td>
-                                            <td class="text-center">1</td>
-                                            <td class="text-end">$60.00</td>
+                                            <tbody id="items-list">
+                                                <tr >
+                                                    <td ></td>
+                                                    <td class="qn"></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                               </tbody>
+                                        <tr class="tr2">
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td class="sub">SubTotal : Rs.<span id="subtotal"></span></td>
+                                            <td class="text-end">$710.99</td>
                                         </tr>
                                         <tr>
-                                            <td>
-                                                <div class="item-desc-1">
-                                                    <span>03</span>
-                                                </div>
-                                            </td>
-                                            <td class="pl0">Application Interface Design</td>
-                                            <td class="text-center">$240</td>
-                                            <td class="text-center">3</td>
-                                            <td class="text-end">$640.00</td>
-                                        </tr>
-    
-                                        <tr>
-                                            <td>
-                                                <div class="item-desc-1">
-                                                    <span>04</span>
-                                                </div>
-                                            </td>
-                                            <td class="pl0">Theme Development</td>
-                                            <td class="text-center">$720</td>
-                                            <td class="text-center">4</td>
-                                            <td class="text-end">$640.00</td>
-                                        </tr> -->
-                                        <tr class="tr2">
                                             <td></td>
                                             <td></td>
                                             <td></td>
-                                            <td class="text-center">SubTotal</td>
-                                            <!-- <td class="text-end">$710.99</td> -->
+                                            <td class="sub">GST (5%) : Rs.<span id="gst"></span></td>
+                                            <td class="text-end">$85.99</td>
                                         </tr>
                                         <tr class="tr2">
                                             <td></td>
                                             <td></td>
                                             <td></td>
-                                            <td class="text-center">Tax</td>
-                                            <!-- <td class="text-end">$85.99</td> -->
+                                            <td class="sub">Discount (10%) :Rs.<span id="discount"></span></td>
+                                            <td class="f-w-600 text-end active-color">$795.99</td>
                                         </tr>
                                         <tr class="tr2">
                                             <td></td>
                                             <td></td>
                                             <td></td>
-                                            <td class="text-center f-w-600 active-color">Grand Total</td>
-                                            <!-- <td class="f-w-600 text-end active-color">$795.99</td> -->
+                                            <td class="sub">Grand Total :Rs.<span id="total"></span><span id="discount"></span></td>
+                                            <td class="f-w-600 text-end active-color">$795.99</td>
                                         </tr>
                                         </tbody>
                                     </table>
                                 </div>
+                            </div> -->
+
+                            <div class="invoice-center">
+                                <div class="table-responsive">
+                                    <table class="table mb-0 invoice-table">
+                                        <thead class="bg-active">
+                                        <tr class=" team">
+                                            <th>No.</th>
+                                            <th class="item">Item Description</th>
+                                            <th class=" qn">Quantity</th>
+                                            <th class="pr">Price</th>
+                                            <th>Amount</th>
+                                        </tr>
+                                        </thead>
+                                        
+                                            <tbody id="items-list">
+                                                <tr >
+                                                    <td ></td>
+                                                    <td class="qn"></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                               </tbody>
+                                        <!-- <tr class="tr2">
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td class="sub">SubTotal<span id="subtotal" cl></span></td>
+                                            <!-- <td class="text-end">$710.99</td> -->
+                                        <!-- </tr>
+                                        <tr class="tr2">
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td class="sub">GST (5%) </td>
+                                            <td class="text-end">$85.99</td>
+                                        </tr> -->
+                                        <!-- <tr class="tr2">
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td class="sub">Discount (10%)</td>
+                                            <td class="text-end">$85.99</td>
+                                        </tr> -->
+                                        <!-- <tr class="tr2">
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td class="sub f-w-600 active-color">Grand Total</td>
+                                            <td class="f-w-600 text-end active-color">$795.99</td>
+                                        </tr> -->
+                                        </tbody> 
+                                    </table>
+                                </div>
                             </div>
+                            <div class="col-6 total-section lastsection">
+                                <p class="sub last1">Subtotal <span id="subtotal" class="sl"></span></p>
+                                <p class="sub last1">GST (5%)  <span id="gst" class="ts"></span> </p>
+                                <p class="sub last1">Discount (10%)  <span id="discount" class="count"></span></p>
+                                <p class="sub last">Grand Total  <span id="total" class="tl"></span></p>
+                            </div>
+                        </div>
                             <div class="invoice-bottom">
                                 <div class="row">
                                     <div class="col-lg-6 col-md-5 col-sm-5">
-                                        <div class="payment-method mb-30">
+                                        <div class="payment-method mb-30 ">
                                             <h3 class="inv-title-1">Payment Method</h3>
                                             <ul class="payment-method-list-1 text-14">
                                                 <li><strong>Account No:</strong> 00 123 456 789</li>
-                                                <li><strong>Account Name:</strong> abcd</li>
+                                                <li><strong>Account Name:</strong> appu</li>
                                                 <li><strong>Branch Name:</strong> xyz</li>
                                             </ul>
                                         </div>
@@ -271,11 +303,11 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="row">
+        <div class="row footer">
             <div class="col-12">
                 <p class="thank">Thank you for purchase!</p>
            </div>
-        </div> -->
+        </div>
     </div>
 
     
