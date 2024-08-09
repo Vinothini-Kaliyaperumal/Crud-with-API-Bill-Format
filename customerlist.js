@@ -57,10 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             const row = document.createElement('tr');
             const cell = document.createElement('td');
-            // cell.colSpan = 7; 
-            // cell.textContent = 'No data available';
-            // row.appendChild(cell);
-            // tableBody.appendChild(row);
         }
     }
 

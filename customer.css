@@ -4,7 +4,9 @@ body {
     padding: 0;
     background-color: #f7f0d5;
   }
- 
+  .quantityError{
+    margin-left: -25px;
+  }
  .box{
     margin-left:-40px;
   }
