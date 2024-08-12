@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!--  <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -121,151 +121,141 @@
                 <button id="can" class="btn btn-primary print-button can">Cancel</button>
             </div>
         </form>
-    </div>
+    </div> 
 </body>
 </html>
+-->
 
 
 
 
 
- -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bill Making System</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="customer.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="customer.js"></script>
-</head>
-<body>
-    <h1 class="bil">Bill Making System</h1>
-    <div class="container">
-        <form id="billing-form" class="md-4" onsubmit="handleSubmit(event)">
-            <div class="container-custom">
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="customerName">Customer Name *</label>
-                        <input type="text" class="form-control" id="customerName" name="customerName" placeholder="Enter customer name">
-                        <span class="error" id="customerNameError"></span>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="mobileNo">Phone Num *</label>
-                        <input type="number" class="form-control" id="mobileNo" name="mobileNo" placeholder="Enter your phone number">
-                        <span class="error" id="mobileNoError"></span>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
-                        <span class="error" id="emailError"></span>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="purchase-date">Purchase Date</label>
-                        <input type="date" class="form-control" id="purchase-date" name="purchase-date">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="address">Address *</label>
-                        <textarea class="form-control ass" id="address" name="address" placeholder="Enter your current address"></textarea>
-                        <span class="error" id="addressError"></span>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="gender">Gender</label>
-                        <select class="form-control gn" id="gender" name="gender">
-                            <option value="" class="drop">Select Gender</option>
-                            <option value="MALE" class="drop">Male</option>
-                            <option value="FEMALE" class="drop">Female</option>
-                            <option value="OTHER" class="drop">Other</option>
-                        </select>
-                        <span class="error" id="genderError"></span>
-                    </div>
-                </div>
-            </div>
-
-            <div id="show" class="container-custom tom">
-                <div class="text-right">
-                    <button id="add" type="button" class="btn btn-success mb-2" onclick="addRow()">+ Add Row</button>
-                </div>
-                <div class="table-responsive">
-                    <table class="table" id="bill-table">
-                        <thead>
-                            <tr>
-                                <th>Sl</th>
-                                <th>Product</th>
-                                <th>Quantity</th>
-                                <th>Price</th>
-                                <th>Amount</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="col-md-2">
-                                    <ol><li></li></ol>
-                                </td> 
-                                <td class="col-md-2">
-                                    <select id="productName" class="form-control box gn" name="productName" onchange="setPrice(this); validateRows();">
-                                        <option value="" data-price="0">Select a product</option>
-                                        <option value="Headphones" data-price="19" data-stock="100">Headphones</option>
-                                        <option value="Laptop" data-price="799" data-stock="50">Laptop</option>
-                                        <option value="Wireless Mouse" data-price="24" data-stock="200">Wireless Mouse</option>
-                                        <option value="Smartwatch" data-price="129" data-stock="150">Smartwatch</option>
-                                        <option value="Gaming Keyboard" data-price="49" data-stock="100">Gaming Keyboard</option>
-                                    </select>
-                                    <span class="error productNameError"></span>
-                                </td>
-                                <td class="col-md-2">
-                                    <input type="number" class="form-control box" name="quantity" placeholder="Enter quantity" oninput="calculateAmount(this.parentElement.parentElement); validateRows();">
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Bill Making System</title>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+     <link rel="stylesheet" href="customer.css">
+     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+     <script src="customer.js"></script>
+ </head>
+ <body>
+     <h1 class="bil">Bill Making System</h1>
+     <div class="container">
+         <form id="billing-form" class="md-4" onsubmit="handleSubmit(event)">
+             <div class="container-custom">
+                 <div class="form-row">
+                     <div class="form-group col-md-6">
+                         <label for="customerName">Customer Name *</label>
+                         <input type="text" class="form-control" id="customerName" name="customerName" placeholder="Enter customer name">
+                         <span class="error" id="customerNameError"></span>
+                     </div>
+                     <div class="form-group col-md-6">
+                         <label for="mobileNo">Phone Num *</label>
+                         <input type="number" class="form-control" id="mobileNo" name="mobileNo" placeholder="Enter your phone number">
+                         <span class="error" id="mobileNoError"></span>
+                     </div>
+                 </div>
+                 <div class="form-row">
+                     <div class="form-group col-md-6">
+                         <label for="email">Email</label>
+                         <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
+                         <span class="error" id="emailError"></span>
+                     </div>
+                     <div class="form-group col-md-6">
+                         <label for="purchase-date">Purchase Date</label>
+                         <input type="date" class="form-control" id="purchase-date" name="purchase-date">
+                     </div>
+                 </div>
+                 <div class="form-row">
+                     <div class="form-group col-md-6">
+                         <label for="address">Address *</label>
+                         <textarea class="form-control ass" id="address" name="address" placeholder="Enter your current address"></textarea>
+                         <span class="error" id="addressError"></span>
+                     </div>
+                     <div class="form-group col-md-6">
+                         <label for="gender">Gender</label>
+                         <select class="form-control gn" id="gender" name="gender">
+                             <option value="" class="drop">Select Gender</option>
+                             <option value="MALE" class="drop">Male</option>
+                             <option value="FEMALE" class="drop">Female</option>
+                             <option value="OTHER" class="drop">Other</option>
+                         </select>
+                         <span class="error" id="genderError"></span>
+                     </div>
+                 </div>
+             </div>
+ 
+             <div id="show" class="container-custom tom">
+                 <div class="text-right">
+                    <button id="add" type="button" class="btn btn-success mb-2" onclick="addRow()" disabled>+ Add Row</button>
+                 </div>
+                 <div class="table-responsive">
+                     <table class="table" id="bill-table">
+                         <thead>
+                             <tr>
+                                 <th>Sl</th>
+                                 <th>Product</th>
+                                 <th>Quantity</th>
+                                 <th>Price</th>
+                                 <th>Amount</th>
+                                 <th>Action</th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                             <tr>
+                                 <td class="col-md-2">
+                                     <ol><li></li></ol>
+                                 </td> 
+                                 <td class="col-md-2">
+                                     <select id="productName" class="form-control box gn " name="productName" onchange="setPrice(this); validateRows();">
+                                         <option value="" data-price="0" >Select a product</option>
+                                         <option value="Headphones" data-price="19" data-stock="20">Headphones</option>
+                                         <option value="Laptop" data-price="799" data-stock="20">Laptop</option>
+                                         <option value="Wireless Mouse" data-price="24" data-stock="20">Wireless Mouse</option>
+                                         <option value="Smartwatch" data-price="129" data-stock="20">Smartwatch</option>
+                                         <option value="Gaming Keyboard" data-price="49" data-stock="20">Gaming Keyboard</option>
+                                     </select>
+                                     <span class="error productNameError"></span>
+                                 </td>
+                                 <td class="col-md-2">
+                                     <input type="number" class="form-control box" name="quantity" placeholder="Enter quantity" oninput="calculateAmount(this.parentElement.parentElement); validateRows();">
+                                     <span class="error quantityError"></span>
+                                 </td>
+                                 <!-- <td>
+                                    <input type="number" class="form-control box" name="quantity" placeholder="Enter quantity" oninput="validateRow(this.closest('tr')); calculateAmount(this.closest('tr'));">
                                     <span class="error quantityError"></span>
-                                </td>
-                                <td class="col-md-2">
-                                    <input type="number" class="form-control box gn" name="price" readonly>
-                                </td>
-                                <td class="col-md-2">
-                                    <input type="number" class="form-control box gn" name="totalAmount" readonly>
-                                </td>
-                                <td class="col-md-2">
-                                    <button type="button" class="btn btn-danger dlbox" onclick="deleteRow(this)">Delete</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div id="formError" class="error" style="display:none;"></div>
-                </div>
-                <div class="total text-right mt-4">
-                    <p>Subtotal: Rs.<span id="subtotal">0.00</span></p>
-                    <p>GST (5%): Rs.<span id="gst">0.00</span></p>
-                    <p>Discount (10%): Rs.<span id="discount">0.00</span></p>
-                    <h4>Total: Rs.<span id="total">0.00</span></h4>
-                </div>
-            </div>
-
-            <div id="total1" class="text-right lastbtn">
-                <button id="save" type="submit" class="btn btn-primary print-button sav">Save</button>
-                <button id="can" class="btn btn-primary print-button can">Cancel</button>
-            </div>
-        </form>
-    </div>
-</body>
-</html>
+                                </td> -->
+                                
+                                 <td class="col-md-2">
+                                     <input type="number" class="form-control box gn" name="price" readonly>
+                                 </td>
+                                 <td class="col-md-2">
+                                     <input type="number" class="form-control box gn" name="totalAmount" readonly>
+                                 </td>
+                                 <td class="col-md-2">
+                                     <button type="button" class="btn btn-danger dlbox" onclick="deleteRow(this)">Delete</button>
+                                 </td>
+                             </tr>
+                         </tbody>
+                     </table>
+                     <div id="formError" class="error" style="display:none;"></div>
+                 </div> 
+                 <div class="total text-right mt-4">
+                     <p>Subtotal: Rs.<span id="subtotal">0.00</span></p>
+                     <p>GST (5%): Rs.<span id="gst">0.00</span></p>
+                     <p>Discount (10%): Rs.<span id="discount">0.00</span></p>
+                     <h4>Total: Rs.<span id="total">0.00</span></h4>
+                 </div>
+             </div>
+ 
+             <div id="total1" class="text-right lastbtn">
+                 <button id="save" type="submit" class="btn btn-primary print-button sav">Save</button>
+                 <button id="can" class="btn btn-primary print-button can">Cancel</button>
+             </div>
+         </form>
+     </div>

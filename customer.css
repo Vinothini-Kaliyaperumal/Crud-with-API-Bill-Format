@@ -23,7 +23,9 @@ body {
     color: #a13d63;
     font-style: italic;
   }
-  
+.one{
+  color: red;
+}
   h1 {
     text-align: center;
     margin: 20px 0;
@@ -173,5 +175,9 @@ body {
     color: red;
     font-size: 0.875em;
   }
-     
+ 
+.disabled-option {
+  color: rgb(194, 191, 191); 
+}
+
 
